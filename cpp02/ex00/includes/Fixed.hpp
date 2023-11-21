@@ -1,34 +1,37 @@
-w/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 12:07:14 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/08 13:38:00 by ibenhaim         ###   ########.fr       */
+/*   Created: 2023/11/15 09:48:20 by ibenhaim          #+#    #+#             */
+/*   Updated: 2023/11/15 13:30:40 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
 # include <iostream>
 
-class Zombie {
+class Fixed {
 	
 public :
 
-	Zombie ( void );
-	~Zombie ( void );
-	Zombie ( std::string name );
-	void announce( void ) const;
-	void addName ( std::string name );
+	Fixed	( void );
+	~Fixed	( void );
+	Fixed	( const Fixed &Fix );
+	Fixed	&operator=(const Fixed &Fix);
+
+	int		getRawBits ( void ) const;
+	void	setRawBits( int const raw );
 
 private :
 
-	std::string	_name;
-};
+	int					_nbr;
+	static int const	_bits = 8;
 
-Zombie* zombieHorde( int N, std::string name );
+};
 
 #endif
