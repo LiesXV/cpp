@@ -7,16 +7,53 @@ using std::endl;
 int main( void ) {
 
 	Fixed a;
-
 	Fixed b( Fixed( 5.05f ) * Fixed( 2 ) );
 	
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	a = Fixed (50); 
-	std::cout << a + b << std::endl;
+	cout << "Tests from subject" << endl;
+	cout << endl;
+	cout << a << endl;
+	cout << ++a << endl;
+	cout << a << endl;
+	cout << a++ << endl;
+	cout << a << endl;
+	cout << b << endl;
+	cout << Fixed::max( a, b ) << endl;
+	cout << Fixed::min( a, b ) << endl;
 
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
+	b++;
+	cout << b << endl;
+	b++;
+	cout << b << endl;
+	b++;
 
-	return 0;
+	Fixed	c(42);
+	Fixed	d(24);
+	
+	cout << endl <<"My own tests" << endl;
+	cout << endl;
+
+	cout << "c : " << c << " d : " << d << endl << endl;
+	
+	if (c > d) {cout << "c > d  : true" << endl;}
+	else {cout << "c > d  : false" << endl;}
+	
+	if (c < d) {cout << "c < d  : true" << endl;}
+	else {cout << "c < d  : false" << endl;}
+
+	if (c >= d) {cout << "c >= d : true" << endl;}
+	else {cout << "c >= d : false" << endl;}
+
+	if (c <= d) {cout << "c <= d : true" << endl;}
+	else {cout << "c <= d : false" << endl;}
+
+	if (c == d) {cout << "c == d : true" << endl;}
+	else {cout << "c == d : false" << endl;}
+
+	if (c != d) {cout << "c != d : true" << endl << endl;}
+	else {cout << "c != d : false" << endl << endl;}
+	
+	cout << "c + d = " << (c + d) << endl;
+	cout << "c - d = " << (c - d) << endl;
+	cout << "c * d = " << (c * d) << endl;
+	cout << "c / d = " << (c / d) << endl << endl;
 }

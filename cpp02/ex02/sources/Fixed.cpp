@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:06:49 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/21 18:06:36 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/22 19:05:14 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,63 +71,145 @@ int		Fixed::toInt( void ) const
 {
 	return (this->_nbr >> this->_bits);
 }
+	
+Fixed & Fixed::min(Fixed &nbr1, Fixed &nbr2)
+{
+	if (nbr1.toFloat() <= nbr2.toFloat())
+		return (nbr1);
+	return (nbr2);
+}
+	
+const Fixed & Fixed::min(const Fixed &nbr1, const Fixed &nbr2)
+{
+	if (nbr1.toFloat() <= nbr2.toFloat())
+		return (nbr1);
+	return (nbr2);
+}
+	
+Fixed & Fixed::max(Fixed &nbr1, Fixed &nbr2)
+{
+	if (nbr1.toFloat() >= nbr2.toFloat())
+		return (nbr1);
+	return (nbr2);
+}
+	
+const Fixed & Fixed::max(const Fixed &nbr1, const Fixed &nbr2)
+{
+	if (nbr1.toFloat() >= nbr2.toFloat())
+		return (nbr1);
+	return (nbr2);
+}
+
+
+
 
 //							SURCHARGES D'OPERATEUR
 
-//			+ - * / =
+
+//							+ - * / =
+/////////////////////////////////////////////////////////////////////
 
 Fixed	&Fixed::operator=(const Fixed &Fix)
 {
 	this->setRawBits(Fix.getRawBits());
 	return (*this);
 }
-		Fixed	Fixed::operator+(const Fixed &Fix)
-		{
-			Fixed newFix = this->toFloat() + Fix.toFloat();		
-			return (newFix);
-		}
-				Fixed	Fixed::operator-(const Fixed &Fix)
-				{
-					Fixed newFix = this->toFloat() - Fix.toFloat();			
-					return (newFix);
-				}
-						Fixed	Fixed::operator*(const Fixed &Fix)
-						{
-							Fixed newFix = this->toFloat() * Fix.toFloat();				
-							return (newFix);
-						}
-								Fixed	Fixed::operator/(const Fixed &Fix)
-								{
-									Fixed newFix = this->toFloat() / Fix.toFloat();					
-									return (newFix);
-								}
 
-//			< > <= >= != ==
+Fixed	Fixed::operator+(const Fixed &Fix)
+{
+	Fixed newFix = this->toFloat() + Fix.toFloat();		
+	return (newFix);
+}
+
+Fixed	Fixed::operator-(const Fixed &Fix)
+{
+	Fixed newFix = this->toFloat() - Fix.toFloat();			
+	return (newFix);
+}
+
+Fixed	Fixed::operator*(const Fixed &Fix)
+{
+	Fixed newFix = this->toFloat() * Fix.toFloat();				
+	return (newFix);
+}
+
+Fixed	Fixed::operator/(const Fixed &Fix)
+{
+	Fixed newFix = this->toFloat() / Fix.toFloat();					
+	return (newFix);
+}
+
+
+//						< > <= >= != ==
+/////////////////////////////////////////////////////////////////////
 
 bool	Fixed::operator<(const Fixed &Fix)
 {	
-	return (this->toFloat() < Fix.toFloat());
+	return (this->toFloat() < Fix.toFloat());	
 }
-	bool	Fixed::operator>(const Fixed &Fix)
-	{	
-		return (this->toFloat() > Fix.toFloat());
-	}
-		bool	Fixed::operator>=(const Fixed &Fix)
-		{	
-			return (this->toFloat() >= Fix.toFloat());
-		}
-			bool	Fixed::operator<=(const Fixed &Fix)
-			{	
-				return (this->toFloat() <= Fix.toFloat());
-			}
-				bool	Fixed::operator!=(const Fixed &Fix)
-				{	
-					return (this->toFloat() != Fix.toFloat());
-				}
-					bool	Fixed::operator==(const Fixed &Fix)
-					{	
-						return (this->toFloat() == Fix.toFloat());
-					}
+
+bool	Fixed::operator>(const Fixed &Fix)
+{	
+	return (this->toFloat() > Fix.toFloat());	
+}
+
+bool	Fixed::operator>=(const Fixed &Fix)
+{	
+	return (this->toFloat() >= Fix.toFloat());	
+}
+
+bool	Fixed::operator<=(const Fixed &Fix)
+{	
+	return (this->toFloat() <= Fix.toFloat());	
+}
+
+bool	Fixed::operator!=(const Fixed &Fix)
+{	
+	return (this->toFloat() != Fix.toFloat());	
+}
+
+bool	Fixed::operator==(const Fixed &Fix)
+{	
+	return (this->toFloat() == Fix.toFloat());	
+}
+
+
+//						++ --
+/////////////////////////////////////////////////////////////////////
+
+Fixed	&Fixed::operator++( void )
+{
+	this->_nbr++;
+	return (*this);
+}
+
+Fixed	&Fixed::operator--( void )
+{
+	this->_nbr--;
+	return (*this);
+}
+
+Fixed	Fixed::operator++( int value )
+{
+	Fixed Fix;
+
+	(void)value;
+	Fix = *this;
+	this->_nbr++;
+
+	return (Fix);	
+}
+
+Fixed	Fixed::operator--( int value )
+{
+	Fixed Fix;
+
+	(void)value;
+	Fix = *this;
+	this->_nbr--;
+
+	return (Fix);	
+}
 
 
 

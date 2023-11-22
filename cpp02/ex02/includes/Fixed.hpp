@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:48:20 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/21 18:10:03 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:59:45 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,31 @@ public :
 	float	toFloat	( void ) const;
 	int		toInt( void ) const;
 
-
-	bool operator<(const Fixed &Fix);
-	bool operator>(const Fixed &Fix);
-	bool operator>=(const Fixed &Fix);
-	bool operator<=(const Fixed &Fix);
-	bool operator!=(const Fixed &Fix);
-	bool operator==(const Fixed &Fix);
-
-	Fixed operator+(const Fixed &Fix);
-	Fixed operator-(const Fixed &Fix);
-	Fixed operator*(const Fixed &Fix);
-	Fixed operator/(const Fixed &Fix);
-
+	static Fixed & min(Fixed &nbr1, Fixed &nbr2);
+	static const Fixed & min(const Fixed &nbr1, const Fixed &nbr2);
+	static Fixed & max(Fixed &nbr1, Fixed &nbr2);
+	static const Fixed & max(const Fixed &nbr1, const Fixed &nbr2);
 	
+
+	bool	operator<(const Fixed &Fix);
+	bool 	operator>(const Fixed &Fix);
+	bool	operator>=(const Fixed &Fix);
+	bool	operator<=(const Fixed &Fix);
+	bool	operator!=(const Fixed &Fix);
+	bool	operator==(const Fixed &Fix);
+
+
+	Fixed	operator+(const Fixed &Fix);
+	Fixed	operator-(const Fixed &Fix);
+	Fixed	operator*(const Fixed &Fix);
+	Fixed	operator/(const Fixed &Fix);
+
+
+	Fixed	operator++( int value );
+	Fixed	operator--( int value );
+	Fixed	& operator++( void );
+	Fixed	& operator--( void );
+
 
 private :
 
@@ -54,6 +65,6 @@ private :
 
 };
 
-std::ostream &operator<<(std::ostream &os, const Fixed &Fix);
+std::ostream	&operator<<(std::ostream &os, const Fixed &Fix);
 
 #endif
