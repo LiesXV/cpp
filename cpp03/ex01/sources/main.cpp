@@ -6,15 +6,15 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:47:45 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:11:05 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:23:31 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#include "../includes/ScavTrap.hpp"
 
 int main(void)
 {
-	ClapTrap Goku("Goku");
+	ScavTrap Goku("Goku");
 	ClapTrap Freezer("Freezer");
 	cout << endl;
 
@@ -47,6 +47,7 @@ int main(void)
 	cout << Freezer.getName() << " have " << Freezer.getHitPoints() << " HP's" << endl;
 	cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << endl;
 	cout << endl;	
+	Goku.guardGate();
 	
 	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
 	cout << endl;	
