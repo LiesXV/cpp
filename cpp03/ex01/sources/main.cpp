@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:47:45 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:23:31 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:50:37 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(void)
 	cout << endl;
 
 	Freezer.attack("Goku");
-	Goku.takeDamage(9);
+	Goku.takeDamage(Freezer.getAttackDamages());
 
 	cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << endl;
 	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
@@ -42,13 +42,16 @@ int main(void)
 	cout << endl;	
 	
 	Goku.attack("Freezer");
-	Freezer.takeDamage(20);
+	Freezer.takeDamage(Goku.getAttackDamages());
 	cout << endl;	
 	cout << Freezer.getName() << " have " << Freezer.getHitPoints() << " HP's" << endl;
 	cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << endl;
-	cout << endl;	
-	Goku.guardGate();
+	cout << endl;
 	
+	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
+	cout << endl;
+		
+	Goku.guardGate();
 	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
 	cout << endl;	
 	
@@ -57,7 +60,7 @@ int main(void)
 	cout << endl;
 	
 	Goku.attack("Freezer");
-	Freezer.takeDamage(20);
+	Freezer.takeDamage(Goku.getAttackDamages());
 	cout << endl;	
 	
 	

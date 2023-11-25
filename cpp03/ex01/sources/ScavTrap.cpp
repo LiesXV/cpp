@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:01:43 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:40:32 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:47:38 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 void	ScavTrap::guardGate()
 {
-	if (this->getEnergyPoints() > 0)
+	if (this->getHitPoints() <= 0)
+		cout << this->getName() << " is dead and can't enter in Super Sayian mode." << endl;
+	else if (this->getEnergyPoints() <= 0)
+		cout << this->getName() << " have not enough EPs to enter in Super Sayian mode." << endl;
+	else
 	{
 		cout << this->getName() << " Entered in Super Sayian mode." << endl;
 		this->_energyPoints--;
-		return ;
 	}
-	cout << this->getName() << " have not enough EPs to enter in Super Sayian mode." << endl;
 	return ;
 }
 
@@ -33,7 +35,7 @@ void	ScavTrap::attack(const std::string& target)
 		cout << this->getName() << " have not enough EPs to attack." << endl;
 	else
 	{
-		cout << this->getName() << " is launching a Kamehameha on " << target << " !" << endl;
+		cout << this->getName() << " is launching a Kamehameha on " << target << " causing " << this->getAttackDamages() << " damages !" << endl;
 		this->_energyPoints--;	
 	}
 }

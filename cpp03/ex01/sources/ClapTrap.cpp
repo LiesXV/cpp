@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:18:10 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:40:09 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/25 18:48:01 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ClapTrap::attack(const std::string& target)
 		cout << this->getName() << " have not enough EPs to attack." << endl;
 	else
 	{
-		cout << this->getName() << " attacks " << target << " !" << endl;
+		cout << this->getName() << " attacks " << target << " causing " << this->getAttackDamages() << " damages !" << endl;
 		this->_energyPoints--;	
 	}
 }
