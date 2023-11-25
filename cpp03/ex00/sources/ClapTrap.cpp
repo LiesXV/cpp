@@ -6,16 +6,21 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:18:10 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/22 20:13:57 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/25 16:25:23 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 
 
+
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->getEnergyPoint() > 0)
+	if (amount <= 0)
+		cout << "Amount of damages must be superior to 0." << endl;
+	if (this->getHitPoints() == 0)
+		cout << this->getName() << " is already dead." << endl;
+	else if (this->getEnergyPoint() > 0)
 	{
 		if (this->getHitPoints() + amount <= 65535)
 		{
@@ -35,11 +40,43 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		this->_energyPoints--;
 	}
 	else
-		cout << this->getName() << " have no more EP's" << endl;
+		cout << this->getName() << " have no more EP's." << endl;
 }
 
 
 
+void	ClapTrap::takeDamage(unsigned int amount)
+{
+	if (amount <= 0)
+		cout << "Amount of damages must be superior to 0." << endl;
+	if (this->getHitPoints() <= 0)
+		cout << this->getName() << " is already dead." << endl;
+	else if (amount >= this->getHitPoints())
+	{
+		cout << this->getName() << " lost " << this->getHitPoints() << " HP's." << endl;
+		this->_hitPoints = 0;
+		cout << this->getName() << " have no more HPs..." << endl;
+	}
+	else
+	{
+		cout << this->getName() << " lost " << amount << " HP's." << endl;
+		this->_hitPoints -= amount;
+	}
+}
+
+
+void	ClapTrap::attack(const std::string& target)
+{
+	if (this->getHitPoints() <= 0)
+		cout << this->getName() << " is dead and can't attack." << endl;
+	else if (this->getEnergyPoint() <= 0)
+		cout << this->getName() << " have not enough EPs to attack." << endl;
+	else
+	{
+		cout << this->getName() << " attacks " << target << " !" << endl;
+		this->_energyPoints--;	
+	}
+}
 
 
 
