@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:29:57 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/26 18:52:41 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:07:07 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,23 @@
 
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	const WrongAnimal* c = new WrongCat();
-	WrongCat cat;
-	
-	cout << endl;
-	
-	cout << j->getType() << " " << endl;
-	j->makeSound();
-	
-	cout << endl << i->getType() << " " << endl;
-	i->makeSound();
+	Animal *animals[100];
 
+	for (int i = 0; i < 100; i += 2)
+	{
+		animals[i] = new Cat();
+		animals[i + 1] = new Dog();
+	}
+	
+	for (int i = 0; i < 100; i++)
+	{
+		cout << "[" << i + 1 << "]	";
+		animals[i]->makeSound(); 
+		cout << endl;
+	}
 
-	cout << endl << c->getType() << " (constructed with WrongAnimal)" << endl;
-	c->makeSound();
-	
-	cout << endl << cat.getType() << " (constructed alone)" << endl;
-	cat.makeSound();
-	
-	cout << endl;
-	
-	meta->makeSound();
-
-	cout << endl;
-
-	delete meta;
-	delete j;
-	delete i;
-	delete c;
-	
-	return 0;
+	for (int i = 0; i < 100; i++)
+	{
+		delete animals[i];
+	}
 }

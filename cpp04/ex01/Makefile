@@ -1,65 +1,63 @@
-#  |  |  ___ \    \  |         |
-#  |  |     ) |  |\/ |   _  |  |  /   _ 
-# ___ __|  __/   |   |  (   |    <    __/ 
-#    _|  _____| _|  _| \__,_| _|\_\ \___|
-#                              by jcluzet
-################################################################################
-#                                     CONFIG                                   #
-################################################################################
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/28 12:26:13 by ibenhaim          #+#    #+#              #
+#    Updated: 2023/11/28 14:59:09 by ibenhaim         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME        := Animal
-CC         := c++
-FLAGS    := -Wall -Wextra -Werror -std=c++98
- 
-################################################################################
-#                                 PROGRAM'S SRCS                               #
-################################################################################
+NAME        = Animal
 
-SRCS        :=      sources/main.cpp \
-                          sources/WrongCat.cpp \
-                          sources/Animal.cpp \
-                          sources/Dog.cpp \
-                          sources/Cat.cpp \
-                          sources/WrongAnimal.cpp \
-                          sources/Brain.cpp \
-                          
-OBJS        := ${SRCS:.cpp=.o}
+DIR_INC		=	includes/
+DIR_SRCS	=	sources/
 
-.cpp.o:
-	${CC} ${FLAGS} -c $< -o ${<:.cpp=.o}
+SRCS		=	${DIR_SRCS}main.cpp\
+				${DIR_SRCS}Animal.cpp\
+				${DIR_SRCS}Cat.cpp\
+				${DIR_SRCS}Dog.cpp\
+				${DIR_SRCS}WrongAnimal.cpp\
+				${DIR_SRCS}WrongCat.cpp\
+				${DIR_SRCS}Brain.cpp
 
-################################################################################
-#                                  Makefile  objs                              #
-################################################################################
+INC			=	${DIR_INC}Animal.hpp\
+				${DIR_INC}Cat.hpp\
+				${DIR_INC}Dog.hpp\
+				${DIR_INC}WrongAnimal.hpp\
+				${DIR_INC}WrongCat.hpp\
+				${DIR_INC}Brain.hpp
 
+DIR_OBJS	=	.objs/
 
-CLR_RMV		:= \033[0m
-RED		    := \033[1;31m
-GREEN		:= \033[1;32m
-YELLOW		:= \033[1;33m
-BLUE		:= \033[1;34m
-CYAN 		:= \033[1;36m
-RM		    := rm -f
+OBJS 		=	${addprefix ${DIR_OBJS},${SRCS:.cpp=.o}}
 
-${NAME}:	${OBJS}
-			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
-			${CC} ${FLAGS} -o ${NAME} ${OBJS}
-			@echo "$(GREEN)$(NAME) created[0m ✔️"
+CPP			=	c++ -std=c++98 -g3
 
-all:		${NAME}
+FLAGS		=	-Wall -Wextra -Werror
 
-bonus:		all
+RM			=	rm -rf
+# ====================== RULES ====================== #
+# ---- Compiled rules ---- #
+all:			${NAME}
 
+${NAME}:		${OBJS}
+				${CPP} ${FLAGS} ${OBJS} -o ${NAME}
+
+${DIR_OBJS}%.o: 	%.cpp ${INC}
+					@mkdir -p ${shell dirname $@}
+					${CPP} ${FLAGS} -c $< -o $@ -I ${DIR_INC}
+
+# ---- Usual Rules ---- #
 clean:
-			@ ${RM} *.o */*.o */*/*.o
-			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
+				${RM} ${OBJS} ${DIR_OBJS}
+				${RM} log
 
-fclean:		clean
-			@ ${RM} ${NAME}
-			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
+fclean: 		clean
+				${RM} ${NAME}
 
-re:			fclean all
+re:				fclean ${NAME}
 
-.PHONY:		all clean fclean re
-
-
+.PHONY:			all clean fclean re

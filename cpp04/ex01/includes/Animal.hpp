@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:59:34 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/26 18:49:08 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:24:26 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ protected :
 public :
 
 	Animal			( void );
-	~Animal			( void );
+	virtual ~Animal	( void );
 	Animal			(const Animal &obj);
 	Animal			&operator=(const Animal &obj);
 
-	string			getType ( void ) const;
-	
-	virtual void	makeSound( void ) const;
-	
+	string			getType		( void ) const;
+	Brain			*getBrain	( void ) const;
+	virtual void	makeSound	( void ) const;
 
 };
 

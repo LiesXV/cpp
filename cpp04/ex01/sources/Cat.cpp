@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:18:41 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/26 18:38:09 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/28 14:58:12 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 Cat::Cat ( void )
 {
-	cout << "Cat Default Constructor Called" << endl;
+	cerr << "Cat Default Constructor Called" << endl;
 	this->_type = "Cat";
 	return ;
 }
 
 Cat::~Cat ( void )
 {
-	cout << "Cat Destructor Called" << endl;
+	cerr << "Cat Destructor Called" << endl;
 	return ;
 }
 
 Cat	&Cat::operator=(const Cat &obj)
 {
-	cout << "Cat Copy Assignement Constructor Called";
+	cerr << "Cat Copy Assignement Constructor Called";
 	this->_type = obj.getType();
 	return (*this);
 }
 
 Cat::Cat(const Cat &obj)
 {
-	cout << "Cat Copy Constructor Called" << endl;
+	cerr << "Cat Copy Constructor Called" << endl;
 	*this = obj;
 	return ;
 }

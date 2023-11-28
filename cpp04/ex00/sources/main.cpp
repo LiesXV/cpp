@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:29:57 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/26 17:06:33 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/28 11:58:33 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ int main()
 	cout << j->getType() << " " << endl;
 	j->makeSound();
 	
+	delete (j);
+	
 	cout << endl << i->getType() << " " << endl;
 	i->makeSound();
 
+	delete (i);
 
 	cout << endl << c->getType() << " (constructed with WrongAnimal)" << endl;
 	c->makeSound();
@@ -40,8 +43,11 @@ int main()
 	cout << endl;
 	
 	meta->makeSound();
+	delete (meta);
 
 	cout << endl;
 	
+	delete (c);
+
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:59:34 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/26 16:43:47 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:17:02 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ protected :
 public :
 
 	Animal			( void );
-	~Animal			( void );
+	virtual ~Animal			( void );
 	Animal			(const Animal &obj);
 	Animal			&operator=(const Animal &obj);
 
