@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:08:40 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/28 14:58:18 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:10:36 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,12 @@ Animal::Animal ( void )
 {
 	cerr << "Animal Default Constructor Called" << endl;
 	this->_type = "N/A";
-	this->_brain = new Brain ();
 	return ;
 }
 
 Animal::~Animal ( void )
 {
 	cerr << "Animal Destructor Called" << endl;
-	delete this->_brain;
 	return ;
 }
 
@@ -51,7 +49,8 @@ void	Animal::makeSound( void ) const
 	cout << "Animal not recognized." << endl;
 }
 
+
 Brain *	Animal::getBrain( void ) const
 {
-	return (this->_brain);
+	return (NULL);
 }

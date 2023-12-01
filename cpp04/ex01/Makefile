@@ -6,7 +6,7 @@
 #    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:26:13 by ibenhaim          #+#    #+#              #
-#    Updated: 2023/11/28 14:59:09 by ibenhaim         ###   ########.fr        #
+#    Updated: 2023/12/01 15:33:36 by ibenhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ DIR_OBJS	=	.objs/
 
 OBJS 		=	${addprefix ${DIR_OBJS},${SRCS:.cpp=.o}}
 
-CPP			=	c++ -std=c++98 -g3
+CPP			=	c++ -std=c++98 -g3 -fsanitize=address 
 
 FLAGS		=	-Wall -Wextra -Werror
 

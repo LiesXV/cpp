@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:23:18 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/28 14:58:10 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:53:09 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ string	Brain::getIdea(int i) const
 
 void	Brain::setIdea(int i, string idea)
 {
-	this->_ideas[i] = idea;
+	if (i >= 0 && i <= 99)
+		this->_ideas[i] = idea;
 }

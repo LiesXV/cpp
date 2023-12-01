@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:01:08 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/26 18:45:19 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:31:22 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 
 class	Dog  : public Animal {
 
+private :
+
+	Brain *	_brain;
+	
 public :
 
 	Dog		( void );
@@ -24,7 +28,8 @@ public :
 	Dog		(const Dog &obj);
 	Dog		&operator=(const Dog &obj);
 
-	void	makeSound( void ) const;
+	void	makeSound	( void ) const;
+	Brain	*getBrain	( void ) const;
 
 };
 

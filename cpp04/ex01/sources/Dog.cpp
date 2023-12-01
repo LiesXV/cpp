@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:21:14 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/28 14:58:13 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/01 15:31:40 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ Dog::Dog ( void )
 {
 	cerr << "Dog Default Constructor Called" << endl;
 	this->_type = "Dog";
+	this->_brain = new Brain ();
 	return ;
 }
 
 Dog::~Dog ( void )
 {
 	cerr << "Dog Destructor Called" << endl;
+	delete this->_brain;
 	return ;
 }
 
@@ -42,4 +44,9 @@ Dog::Dog(const Dog &obj)
 void	Dog::makeSound( void ) const
 {
 	cout << "Wouaf Wouaf  !" << endl;
+}
+
+Brain *	Dog::getBrain( void ) const
+{
+	return (this->_brain);
 }
