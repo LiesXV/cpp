@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/26 15:21:14 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 12:32:22 by ibenhaim         ###   ########.fr       */
+/*   Created: 2023/11/26 15:18:41 by ibenhaim          #+#    #+#             */
+/*   Updated: 2023/12/01 19:27:31 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Includes.hpp"
 
-Dog::Dog ( void )
+Cat::Cat ( void )
 {
-	cerr << "Dog Default Constructor Called" << endl;
-	this->_type = "Dog";
+	cerr << "Cat Default Constructor Called" << endl;
+	this->_type = "Cat";
 	this->_brain = new Brain ();
 	return ;
 }
 
-Dog::~Dog ( void )
+Cat::~Cat ( void )
 {
-	cerr << "Dog Destructor Called" << endl;
+	cerr << "Cat Destructor Called" << endl;
 	delete this->_brain;
 	return ;
 }
 
-Dog	&Dog::operator=(const Dog &obj)
+Cat	&Cat::operator=(const Cat &obj)
 {
-	cerr << "Dog Copy Assignement Constructor Called";
+	cerr << "Cat Copy Assignement Constructor Called";
 	this->_type = obj.getType();
 	for (int i = 0; i < 100; i++)
 	{
@@ -38,20 +38,20 @@ Dog	&Dog::operator=(const Dog &obj)
 	return (*this);
 }
 
-Dog::Dog(const Dog &obj)
+Cat::Cat(const Cat &obj)
 {
-	cerr << "Dog Copy Constructor Called" << endl;
+	cerr << "Cat Copy Constructor Called" << endl;
 	this->_type = obj.getType();
 	this->_brain = new Brain (*obj.getBrain());
 	return ;
 }
 
-void	Dog::makeSound( void ) const
+void	Cat::makeSound( void ) const
 {
-	cout << "Wouaf Wouaf  !" << endl;
+	cout << "Miaouuuu  !" << endl;
 }
 
-Brain *	Dog::getBrain( void ) const
+Brain *	Cat::getBrain( void ) const
 {
 	return (this->_brain);
 }

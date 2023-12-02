@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:29:57 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 12:30:56 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:16:47 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main()
 {
-	Animal *animals[10];
+	AAnimal *animals[10];
 
 	for (int i = 0; i < 10; i += 2)
 	{
@@ -43,7 +43,7 @@ int main()
 	cout << endl;
 	cout << endl;
 	
-	Animal *doggo(animals[3]);
+	AAnimal *doggo(animals[3]);
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -65,7 +65,7 @@ int main()
 	cout << endl;
 	cout << endl;
 	
-	Animal *kitty = animals[2];
+	AAnimal *kitty = animals[2];
 
 	for (int i = 0; i < 5; i++)
 	{
