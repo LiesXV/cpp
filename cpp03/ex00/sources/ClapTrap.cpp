@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:18:10 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:11:32 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ ClapTrap::~ClapTrap( void )
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-	cout << "ClapTrap copy constructor called" << endl;
+	cout << "ClapTrap copy Constructor called" << endl;
 	*this = obj;
 	return ;
 }

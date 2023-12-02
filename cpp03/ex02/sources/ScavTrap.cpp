@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:01:43 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:47:38 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ ScavTrap::~ScavTrap( void )
 
 ScavTrap::ScavTrap(const ScavTrap &obj)
 {
-	cout << "ScavTrap copy constructor called" << endl;
+	cout << "ScavTrap copy Constructor called" << endl;
 	*this = obj;
 	return ;
 }

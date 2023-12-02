@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:06:49 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/22 19:05:14 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ Fixed::Fixed ( void )
 
 Fixed::Fixed ( const int number)
 {
-	std::cout << "Int constructor called" << std::endl;
+	std::cout << "Int Constructor called" << std::endl;
 	this->_nbr = number << this->_bits;
 	return ;
 }
 
 Fixed::Fixed ( const float number)
 {
-	std::cout << "Float constructor called" << std::endl;
+	std::cout << "Float Constructor called" << std::endl;
 	this->_nbr = roundf(number * (1 << this->_bits));
 	return ;
 }
 
 Fixed::Fixed ( const Fixed &Fix )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy Constructor called" << std::endl;
 	*this = Fix;	
 }
 

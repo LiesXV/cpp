@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:06:49 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/15 13:36:19 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Fixed::~Fixed ( void )
 
 Fixed::Fixed ( const Fixed &Fix )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy Constructor called" << std::endl;
 	*this = Fix;
 }
 

@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:01:43 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 19:43:11 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ FragTrap::~FragTrap( void )
 
 FragTrap::FragTrap(const FragTrap &obj)
 {
-	cout << "FragTrap copy constructor called" << endl;
+	cout << "FragTrap copy Constructor called" << endl;
 	*this = obj;
 	return ;
 }

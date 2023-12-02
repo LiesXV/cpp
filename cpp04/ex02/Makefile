@@ -6,7 +6,7 @@
 #    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 12:26:13 by ibenhaim          #+#    #+#              #
-#    Updated: 2023/12/02 12:36:49 by ibenhaim         ###   ########.fr        #
+#    Updated: 2023/12/02 17:46:37 by ibenhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ DIR_INC		=	includes/
 DIR_SRCS	=	sources/
 
 SRCS		=	${DIR_SRCS}main.cpp\
-				${DIR_SRCS}AAnimal.cpp\
 				${DIR_SRCS}Cat.cpp\
 				${DIR_SRCS}Dog.cpp\
 				${DIR_SRCS}WrongAnimal.cpp\
 				${DIR_SRCS}WrongCat.cpp\
-				${DIR_SRCS}Brain.cpp
+				${DIR_SRCS}Brain.cpp\
 
-INC			=	${DIR_INC}AAnimal.hpp\
+INC			=	${DIR_INC}Includes.hpp\
+				${DIR_INC}AAnimal.hpp\
 				${DIR_INC}Cat.hpp\
 				${DIR_INC}Dog.hpp\
 				${DIR_INC}WrongAnimal.hpp\
