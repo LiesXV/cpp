@@ -6,9 +6,12 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:58:25 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 18:58:49 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/03 13:21:06 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef CURE_HPP
+# define CURE_HPP
 
 #include "Includes.hpp"
 
@@ -24,3 +27,5 @@ public :
 	void		use		(ICharacter &target);
 	AMateria*	clone	( void ) const;
 };
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:24:23 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 18:00:51 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:57:26 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ using std::cerr;
 using std::endl;
 using std::string;
 
-#include "ICharacter.hpp"
 #include "AMateria.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
+#include "ICharacter.hpp"
 #include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"

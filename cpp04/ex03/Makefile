@@ -6,7 +6,7 @@
 #    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/31 13:23:09 by lciullo           #+#    #+#              #
-#    Updated: 2023/12/02 18:00:35 by ibenhaim         ###   ########.fr        #
+#    Updated: 2023/12/03 17:57:00 by ibenhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS		=	${DIR_SRCS}main.cpp \
 				${DIR_SRCS}AMateria.cpp \
 				${DIR_SRCS}Ice.cpp \
 				${DIR_SRCS}Cure.cpp \
+				${DIR_SRCS}MateriaSource.cpp \
 
 
 INC			=	${DIR_INC}Includes.hpp \
@@ -39,6 +40,8 @@ INC			=	${DIR_INC}Includes.hpp \
 				${DIR_INC}Character.hpp \
 				${DIR_INC}Ice.hpp \
 				${DIR_INC}Cure.hpp \
+				${DIR_INC}IMateriaSource.hpp \
+				${DIR_INC}MateriaSource.hpp \
 
 
 OBJS		=	${patsubst %.cpp, ${DIR_OBJS}%.o, ${SRCS}}
