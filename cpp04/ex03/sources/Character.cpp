@@ -78,8 +78,8 @@ Character::Character ( const Character &obj )
 {
 	cout << "Character Copy Constructor Called" << endl;
 	for (int i = 0; i < 4; i++)
-	{
-		delete this->_inventory[i];
+	{	if (obj._inventory[i]) {this->_inventory[i] = obj._inventory[i]->clone();}
+		else {this->_inventory[i] = NULL;}
 	}
 	*this = obj;
 	return ;

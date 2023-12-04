@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 17:45:46 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/03 17:57:46 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/04 12:42:58 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class MateriaSource : public IMateriaSource {
 
 private :
 
-	string _type;
 	AMateria *_inventory[4];
 
 public :
@@ -28,7 +27,9 @@ public :
 	~MateriaSource( void );
 	MateriaSource( const MateriaSource &obj );
 	MateriaSource &operator=( const MateriaSource &obj );
-	
+
+	void		learnMateria	( AMateria *m );
+	AMateria*	createMateria	( std::string const & type );
 };
 
 #endif
