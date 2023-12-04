@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:24:27 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/04 19:16:14 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:15:02 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ unsigned int Bureaucrat::getGrade ( void ) const
 Bureaucrat::Bureaucrat ( void )
 {
 	cout << YELLOW << "Bureaucrat Default Constructor Called ( Unnamed )" << END << endl;
-	this->_name = "Unnamed";
+	this->_name = "Unnamed Bureaucrat";
 	this->_grade = 150;	
 	return ;
 }
@@ -80,7 +80,7 @@ Bureaucrat::Bureaucrat ( string const name, unsigned int grade )
 Bureaucrat::Bureaucrat ( const Bureaucrat &obj )
 {
 	cout << YELLOW << "Bureaucrat Copy Constructor Called ( " << obj.getName() << " )" << END << endl;
-	*this = obj;
+	*this = obj; 
 	return ;
 }
 
