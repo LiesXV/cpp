@@ -6,15 +6,17 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:42:13 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/05 15:53:51 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:50:40 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INCLUDES_HPP
 # define INCLUDES_HPP
 
-#include <iostream>
+# include <iostream>
 # include <exception>
+# include <fstream>
+# include <cstdlib>
 
 using std::cerr;
 using std::cout;
@@ -32,6 +34,12 @@ using std::string;
 # define WHITE		"\033[37m"
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+
+
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:38:51 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/04 18:21:06 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/05 18:23:44 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,24 @@
 
 int main (void)
 {
-	
 	cout << endl;
 	
-	try 	//	Tentative de création d'un Bureaucrat de grade 12.
-	{ 
-		Bureaucrat *jean;
-		jean = new Bureaucrat( "Jean" , 12);	
-		cout << jean->getName() << "'s grade is " << jean->getGrade() << endl;
-		delete jean;
+	try 	//	Tentative de création d'un Formulaire de grade 0.
+	{
+		Form contract1 = Form( "Inscription's form" , 0, 24);	
+		cout << contract1 << endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << RED << e.what() << END << std::endl;
 	}
 	cout << endl;
 	
-	try 	//	Tentative de création d'un Bureaucrat de grade 0.
+	try 	//	Tentative de création d'un Formulaire de grade to sign 164.
 	{ 
-		Bureaucrat *bob;
-		bob = new Bureaucrat( "Bobby" , 0);	
-		cout << bob->getName() << "'s grade is " << bob->getGrade() << endl;
+		Form contract2 = Form( "Exclusion's form" , 164, 21);	
+		cout << contract2 << endl;
 		cout << endl;
-		delete bob;
 	}
 	catch (const std::exception& e)
 	{
@@ -44,65 +39,34 @@ int main (void)
 	}
 	cout << endl;
 	
-	try 	//	Tentative de création d'un Bureaucrat de grade 160.
-	{ 
-		Bureaucrat *marc;
-		marc = new Bureaucrat( "Marc" , 160);	
-		cout << marc->getName() << "'s grade is " << marc->getGrade() << endl;
+	Bureaucrat *jean;
+	jean = new Bureaucrat( "Jean" , 24);	
+	cout << jean->getName() << "'s grade is " << jean->getGrade() << endl;
+	
+	cout << endl;
+
+	Form *contract;
+	contract = new Form( "Resiliation's Form" , 20, 10);	
+	cout << *contract << endl;
+
+	for (int i = 0; i < 6; i++)
+	{
+		cout << "Jean's Grade : " << jean->getGrade() << endl;
+		try
+		{
+			jean->signForm( *contract );
 		cout << endl;
-		delete marc;
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << RED << e.what() << END << std::endl;
-	}
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << RED << e.what() << END << std::endl;
+		}
+		jean->incrementGrade();
+	}	
+
+	delete jean;
+	delete contract;
 	
 	cout << endl;
-
-	Bureaucrat *conny = new Bureaucrat( "Conny", 145 );
-
-	try
-	{
-		for (int i = 0; i < 18; i++)
-		{
-			cout << conny->getName() << "'s grade is " << conny->getGrade() << endl;
-			conny->decrementGrade();
-		}
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << RED << e.what() << END << std::endl;
-	} 
-
-	cout << endl;
-	cout << conny->getName() << "'s grade is " << conny->getGrade() << endl;
-
-	delete conny;
-
-	cout << endl;
-	Bureaucrat *eren = new Bureaucrat( "Eren", 8 );
-
-	try
-	{
-		for (int i = 0; i < 18; i++)
-		{
-			cout << eren->getName() << "'s grade is " << eren->getGrade() << endl;
-			eren->incrementGrade();
-		}
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << RED << e.what() << END << std::endl;
-	} 
-
-	cout << endl;
-	cout << eren->getName() << "'s grade is " << eren->getGrade() << endl;
-
-	delete eren;
-
-	
-
-	cout << endl;
-
 	return 0;
 }

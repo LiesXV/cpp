@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:20:05 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/05 17:08:14 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:14:40 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "Includes.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 
@@ -37,7 +37,8 @@ public :
 	string const	&getName ( void ) const;
 	unsigned int	getGrade ( void ) const;
 
-	void	signForm		( Form &form ) const ;
+	void	signAForm		( AForm &form ) const ;
+	void	executeForm		( AForm &form ) const ;
 	void	incrementGrade	( void );
 	void	decrementGrade	( void );
 

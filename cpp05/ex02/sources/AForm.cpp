@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "../includes/Includes.hpp"
 
 
-std::ostream &operator<<(std::ostream &os, const Form &obj)
+std::ostream &operator<<(std::ostream &os, const AForm &obj)
 {
 	os	<< "Form name : " << obj.getName() << endl
 		<< "Grade to sign : " << obj.getGradeToSign() << endl
@@ -32,38 +32,37 @@ std::ostream &operator<<(std::ostream &os, const Form &obj)
 ///////////////////////////////////////////////////////
 
 
-void	Form::beSigned ( const Bureaucrat &obj )
+void	AForm::beSigned ( const Bureaucrat &obj )
 {
 	if (obj.getGrade() > this->getGradeToSign())
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else if (this->getSigningState() == true)
-		throw Form::AlreadySignedException();
+		throw AForm::AlreadySignedException();
 	else
 		this->_isSigned = true;
 }
-
 
 ///////////////////////////////////////////////////////
 //						GETTERS					     //
 ///////////////////////////////////////////////////////
 
 
-string const &	Form::getName ( void ) const
+string const &	AForm::getName ( void ) const
 {
 	return (this->_name);
 }
 
-unsigned int	Form::getGradeToSign ( void ) const
+unsigned int	AForm::getGradeToSign ( void ) const
 {
 	return (this->_gradeToSign);	
 }
 
-unsigned int	Form::getGradeToExecute ( void ) const
+unsigned int	AForm::getGradeToExecute ( void ) const
 {
 	return (this->_gradeToExecute);	
 }
 
-bool			Form::getSigningState ( void ) const
+bool			AForm::getSigningState ( void ) const
 {
 	return (this->_isSigned);
 }
@@ -74,47 +73,47 @@ bool			Form::getSigningState ( void ) const
 ///////////////////////////////////////////////////////
 
 
-Form::Form ( void ) 
+AForm::AForm ( void ) 
 	: _name("Unnamed Form"), _isSigned(false),  _gradeToSign(150) , _gradeToExecute(150)
 {
-	cout << YELLOW << "Form Default Constructor Called ( Unnamed )" << END << endl;
+	cout << YELLOW << "AForm Default Constructor Called ( Unnamed )" << END << endl;
 	return ;
 }
 
-Form::~Form ( void )
+AForm::~AForm ( void )
 {
 	cout << BLUE << "Form Destructor Called ( " << this->getName() << " )" << END << endl;
 	return ;
 }
 
-Form::Form ( string const name , unsigned int gradeToSign, unsigned int gradeToExecute ) 
+AForm::AForm ( string const name , unsigned int gradeToSign, unsigned int gradeToExecute ) 
 	: _name(name), _isSigned(false), _gradeToSign(gradeToSign) , _gradeToExecute(gradeToExecute)
 {
-	cout << YELLOW << "Form Named Constructor Called ( " << name << " )" << END << endl;
+	cout << YELLOW << "AForm Named Constructor Called ( " << name << " )" << END << endl;
 	
 	if (gradeToSign > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else if (gradeToSign < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 
 	if (gradeToExecute > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else if (gradeToExecute < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 		
 	return ;
 }
 
-Form &	Form::operator=(const Form &obj) 
+AForm &	AForm::operator=(const AForm &obj) 
 {
-	cout << YELLOW << "Form Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << endl;
+	cout << YELLOW << "AForm Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << endl;
     this->_isSigned = obj.getSigningState();
 	return (*this);
 }
 
-Form::Form ( const Form &obj )
+AForm::AForm ( const AForm &obj )
 	: _name(obj.getName()),  _isSigned(obj.getSigningState()), _gradeToSign(obj.getGradeToSign()) , _gradeToExecute(obj.getGradeToExecute())
 {
-	cout << YELLOW << "Form Copy Constructor Called ( " << obj.getName() << " )" << END << endl;
+	cout << YELLOW << "AForm Copy Constructor Called ( " << obj.getName() << " )" << END << endl;
 	return ;
 }
