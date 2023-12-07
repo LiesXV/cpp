@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:42:13 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 15:50:40 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:19:15 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ using std::string;
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
-
-
-
+#include "Intern.hpp"
 
 #endif

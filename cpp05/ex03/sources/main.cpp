@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:38:51 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 18:44:11 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:28:15 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,111 +18,42 @@ int main (void)
 	cout << endl;
 	
 	Bureaucrat *jean;
-	jean = new Bureaucrat( "Jean" , 146);	
+	jean = new Bureaucrat( "Jean" , 12);	
 	cout << jean->getName() << "'s grade is " << jean->getGrade() << endl;
 	
 	cout << endl;
+	Intern somePoorIntern;
+	cout << endl;
+	AForm *rrf;
 
-	AForm *shrubbery;
-	shrubbery = new ShrubberyCreationForm( "Target" );	
-	cout << *shrubbery << endl;
+	try
+	{
+		rrf = somePoorIntern.makeForm("lobotomy request", "target");
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << RED << e.what() << ", can't create this." << END << endl;
+	}
 
-	jean->executeForm(*shrubbery);
+	cout << endl;
+	try
+	{
+		rrf = somePoorIntern.makeForm("robotomy request", "target");
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << RED << e.what() << ", can't create this." << END << endl;
+	}
 	cout << endl;
 
-	for (int i = 0; i < 3; i++)
-	{
-		cout << "Jean's Grade : " << jean->getGrade() << endl;
-		try
-		{
-			jean->signAForm( *shrubbery );
-			cout << endl;
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << RED << e.what() << END << std::endl;
-		}
-		jean->incrementGrade();
-	}	
-
-	for (int i = 0; i < 10; i++)
-	{
-		jean->incrementGrade();
-	}	
-
-	jean->executeForm(*shrubbery);
+	jean->signAForm(*rrf);
 	cout << endl;
-
-	for (int i = 0; i < 60; i++)
-	{
-		jean->incrementGrade();
-	}
-
-	AForm *robotomy;
-	robotomy = new RobotomyRequestForm( "Target" );	
-	cout << *robotomy << endl;
-
-	for (int i = 0; i < 3; i++)
-	{
-		cout << "Jean's Grade : " << jean->getGrade() << endl;
-		try
-		{
-			jean->signAForm( *robotomy );
-			cout << endl;
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << RED << e.what() << END << std::endl;
-		}
-		jean->incrementGrade();
-	}
-
-	for (int i = 0; i < 44; i++)
-	{
-		jean->incrementGrade();
-	}
-	
-	cout << endl;
-	
-	for (int i = 0; i < 5; i++)
-	{
-		jean->executeForm(*robotomy);
-		cout << endl;
-	}
+	jean->executeForm(*rrf);
 
 	
 	cout << endl;
-	AForm *pardon;
-	pardon = new PresidentialPardonForm( "Target" );	
-	cout << *pardon << endl;
-
-	for (int i = 0; i < 3; i++)
-	{
-		cout << "Jean's Grade : " << jean->getGrade() << endl;
-		try
-		{
-			jean->signAForm( *pardon );
-			cout << endl;
-		}
-		catch (const std::exception& e)
-		{
-			std::cerr << RED << e.what() << END << std::endl;
-		}
-		jean->incrementGrade();
-	}	
-
-	for (int i = 0; i < 20; i++)
-	{
-		jean->incrementGrade();
-	}
-
-	jean->executeForm(*pardon);
-	
-	cout << endl;
-	delete shrubbery;
-	delete robotomy;
-	delete pardon;
+	delete rrf;
 	delete jean;
 	cout << endl;
-	return 0;
+	
 }

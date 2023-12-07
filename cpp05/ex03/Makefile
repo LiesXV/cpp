@@ -6,7 +6,7 @@
 #    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/04 14:10:19 by ibenhaim          #+#    #+#              #
-#    Updated: 2023/12/07 15:59:46 by ibenhaim         ###   ########.fr        #
+#    Updated: 2023/12/07 19:18:38 by ibenhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS		=	${DIR_SRCS}main.cpp\
 				${DIR_SRCS}ShrubberyCreationForm.cpp\
 				${DIR_SRCS}RobotomyRequestForm.cpp\
 				${DIR_SRCS}PresidentialPardonForm.cpp\
+				${DIR_SRCS}Intern.cpp\
 
 INC			=	${DIR_INC}Bureaucrat.hpp\
 				${DIR_INC}Includes.hpp\
@@ -28,6 +29,7 @@ INC			=	${DIR_INC}Bureaucrat.hpp\
 				${DIR_INC}ShrubberyCreationForm.hpp\
 				${DIR_INC}RobotomyRequestForm.hpp\
 				${DIR_INC}PresidentialPardonForm.hpp\
+				${DIR_INC}Intern.hpp\
 
 DIR_OBJS	=	.objs/
 
