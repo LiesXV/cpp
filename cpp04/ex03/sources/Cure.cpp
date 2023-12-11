@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:58:15 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 18:57:08 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 void	Cure::use ( ICharacter &target )
 {
-	cout << GREEN << "* heals " << target.getName() << "'s wounds *" << END << endl;
+	std::cout << GREEN << "* heals " << target.getName() << "'s wounds *" << END << std::endl;
 	return ;
 }
 

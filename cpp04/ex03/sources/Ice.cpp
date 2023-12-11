@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:40:47 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 18:56:55 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 void		Ice::use ( ICharacter &target )
 {
-	cout << BLUE << "* shoots an ice bolt at " << target.getName() << " *" << END << endl;
+	std::cout << BLUE << "* shoots an ice bolt at " << target.getName() << " *" << END << std::endl;
 	return ;
 }
 

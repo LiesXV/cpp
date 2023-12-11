@@ -23,7 +23,7 @@ class AForm {
 
 private :
 
-	const string		_name;
+	const std::string		_name;
 	bool				_isSigned;
 	unsigned const int	_gradeToSign;
 	unsigned const int	_gradeToExecute; 
@@ -32,11 +32,11 @@ public :
 
 	AForm	( void );
 	virtual ~AForm	( void );
-	AForm	( string const name , unsigned int gradeToSign, unsigned int gradeToExecute );
+	AForm	( std::string const name , unsigned int gradeToSign, unsigned int gradeToExecute );
 	AForm	( const AForm &obj );
 	AForm	&operator=( const AForm &obj );
 	
-	string const	&getName 			( void ) const;
+	std::string const	&getName 			( void ) const;
 	unsigned int	getGradeToSign		( void ) const;
 	unsigned int	getGradeToExecute	( void ) const;
 	bool			getSigningState		( void ) const;

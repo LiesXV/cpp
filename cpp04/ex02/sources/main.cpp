@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:29:57 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 16:47:16 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int main()
 	
 	for (int i = 0; i < 10; i++)
 	{
-		cout << "[" << i + 1 << "]	";
+		std::cout << "[" << i + 1 << "]	";
 		animals[i]->makeSound(); 
-		cout << endl;
+		std::cout << std::endl;
 	}
 
 	for (int i = 0; i < 5; i++)
@@ -37,20 +37,20 @@ int main()
 
 	for (int i = 0; i < 5; i++)
 	{
-		cout << "[ANIMAL 3] " << animals[3]->getBrain()->getIdea(i) << endl;
+		std::cout << "[ANIMAL 3] " << animals[3]->getBrain()->getIdea(i) << std::endl;
 	}
 
-	cout << endl;
-	cout << endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 	
 	AAnimal *doggo(animals[3]);
 
 	for (int i = 0; i < 5; i++)
 	{
-		cout << "[DOGGO] " << doggo->getBrain()->getIdea(i) << endl;
+		std::cout << "[DOGGO] " << doggo->getBrain()->getIdea(i) << std::endl;
 	}
 
-	cout << endl;
+	std::cout << std::endl;
 	
 	for (int i = 0; i < 5; i++)
 	{
@@ -59,28 +59,28 @@ int main()
 
 	for (int i = 0; i < 5; i++)
 	{
-		cout << "[ANIMAL 2] " << animals[2]->getBrain()->getIdea(i) << endl;
+		std::cout << "[ANIMAL 2] " << animals[2]->getBrain()->getIdea(i) << std::endl;
 	}
 
-	cout << endl;
-	cout << endl;
+	std::cout << std::endl;
+	std::cout << std::endl;
 	
 	AAnimal *kitty = animals[2];
 
 	for (int i = 0; i < 5; i++)
 	{
-		cout << "[KITTY] " << kitty->getBrain()->getIdea(i) << endl;
+		std::cout << "[KITTY] " << kitty->getBrain()->getIdea(i) << std::endl;
 	}
 
 	animals[3] = kitty;
 	animals[2] = doggo;
 
-	cout << endl;
+	std::cout << std::endl;
 	for (int i = 0; i < 10; i++)
 	{
-		cout << "[" << i + 1 << "]	";
+		std::cout << "[" << i + 1 << "]	";
 		animals[i]->makeSound(); 
-		cout << endl;
+		std::cout << std::endl;
 	}
 	
 	for (int i = 0; i < 10; i++)

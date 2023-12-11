@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:26:46 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 19:43:33 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public :
 	
 	FragTrap	( void );
 	~FragTrap	( void );
-	FragTrap	( string name );
+	FragTrap	( std::string name );
 	FragTrap	(const FragTrap &obj);
 	FragTrap	&operator=(const FragTrap &obj);
 

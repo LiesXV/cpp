@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 18:42:13 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 15:50:40 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:42:29 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 # include <fstream>
 # include <cstdlib>
 
-using std::cerr;
-using std::cout;
-using std::endl;
-using std::string;
+
 
 # define END		"\033[0m"
 # define BLACK		"\033[30m"

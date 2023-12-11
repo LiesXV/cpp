@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 15:13:03 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 18:57:22 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 void	AMateria::use( ICharacter &target )
 {
 	(void)target;
-	cout << "This Materia have no type" << endl;
+	std::cout << "This Materia have no type" << std::endl;
 }
 
 ///////////////////////////////////////////////////////
 //						GETTERS					     //
 ///////////////////////////////////////////////////////
 
-string const &	AMateria::getType( void ) const
+std::string const &	AMateria::getType( void ) const
 {
 	return (this->_type);
 }
@@ -35,29 +35,29 @@ string const &	AMateria::getType( void ) const
 //					CONSTRUCTORS				     //
 ///////////////////////////////////////////////////////
 
-AMateria::AMateria ( string const & type )
+AMateria::AMateria ( std::string const & type )
 {
-	cerr << "AMateria copy Constructor" << endl;
+	std::cerr << "AMateria copy Constructor" << std::endl;
 	this->_type = type;
 	return ;
 }
 
 AMateria::AMateria ( const AMateria &obj )
 {
-	cerr << "AMateria copy Constructor" << endl;
+	std::cerr << "AMateria copy Constructor" << std::endl;
 	this->_type = obj.getType();
 	return ;
 }
 
 AMateria	&AMateria::operator=(const AMateria &obj)
 {
-	cerr << "AMateria Copy Assignement Constructor Called";
+	std::cerr << "AMateria Copy Assignement Constructor Called";
 	this->_type = obj.getType();
 	return (*this);
 }
 
 AMateria::~AMateria ( void )
 {
-	cerr << "AMateria Default Destructor" << endl;
+	std::cerr << "AMateria Default Destructor" << std::endl;
 	return ;
 }

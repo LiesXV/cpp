@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:11:30 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:12:27 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:41:39 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <iostream>
 
-using std::cout;
-using std::endl;
-using std::string;
+;
+;
+
 
 class	ClapTrap {
 

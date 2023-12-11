@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:01:43 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 void	FragTrap::highFivesGuys( void )
 {
 	if (this->getHitPoints() <= 0)
-		cout << "FragTrap " << this->_name << " is dead and can't high five." << endl;
+		std::cout << "FragTrap " << this->_name << " is dead and can't high five." << std::endl;
 	else if (this->getEnergyPoints() <= 0)
-		cout << "FragTrap " << this->_name << " does not have enough energy to high five" << endl;
+		std::cout << "FragTrap " << this->_name << " does not have enough energy to high five" << std::endl;
 	else
-		cout << this->_name << " wants to high Five!" << endl;
+		std::cout << this->_name << " wants to high Five!" << std::endl;
 }
 
 ///////////////////////////////////////////////////////
@@ -29,7 +29,7 @@ void	FragTrap::highFivesGuys( void )
 
 FragTrap::FragTrap( void )
 {
-	cout << "Default FragTrap Constructor Called" << endl;
+	std::cout << "Default FragTrap Constructor Called" << std::endl;
 	this->_name = "FragTrap";
 	this->_attackDamages = 30;
 	this->_energyPoints = 100;
@@ -37,9 +37,9 @@ FragTrap::FragTrap( void )
 	return ;
 }
 
-FragTrap::FragTrap( string name )
+FragTrap::FragTrap( std::string name )
 {
-	cout << "Named FragTrap Constructor Called" << endl;
+	std::cout << "Named FragTrap Constructor Called" << std::endl;
 	this->_name = name;
 	this->_attackDamages = 30;
 	this->_energyPoints = 100;
@@ -49,13 +49,13 @@ FragTrap::FragTrap( string name )
 
 FragTrap::~FragTrap( void )
 {
-	cout << "FragTrap Destructor Called (" << this->getName() << ")." << endl;
+	std::cout << "FragTrap Destructor Called (" << this->getName() << ")." << std::endl;
 	return ;
 }
 
 FragTrap::FragTrap(const FragTrap &obj)
 {
-	cout << "FragTrap copy Constructor called" << endl;
+	std::cout << "FragTrap copy Constructor called" << std::endl;
 	*this = obj;
 	return ;
 }

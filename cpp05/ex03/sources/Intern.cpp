@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 19:04:52 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 19:26:25 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 Intern::Intern	( void )
 {
-	cout << "Intern Default Constructor Called" << endl;
+	std::cout << "Intern Default Constructor Called" << std::endl;
 }
 
 Intern::~Intern	( void )
 {
-	cout << "Intern Default Destructor Called" << endl;
+	std::cout << "Intern Default Destructor Called" << std::endl;
 }
 
 Intern::Intern	( const Intern &obj )
 {
-	cout << "Intern Copy Constructor Called" << endl;
+	std::cout << "Intern Copy Constructor Called" << std::endl;
 	*this = obj;
 }
 
 Intern	&Intern::operator=( const Intern &obj )
 {
-	cout << "Intern Copy Assignment Constructor Called" << endl;
+	std::cout << "Intern Copy Assignment Constructor Called" << std::endl;
 	(void)obj;
 	return (*this);
 }
 
-AForm *Intern::makeForm (const string &formName, const string &target) const
+AForm *Intern::makeForm (const std::string &formName, const std::string &target) const
 {
-	string formNames[3] = {
+	std::string formNames[3] = {
 		"shrubbery creation",
 		"robotomy request",
 		"presidential pardon"
@@ -63,6 +63,6 @@ AForm *Intern::makeForm (const string &formName, const string &target) const
 		default:
 			throw Intern::InvalidFormException();
 	}
-	cout << "Intern creates " << formName << endl;
+	std::cout << "Intern creates " << formName << std::endl;
 	return tmp;
 }

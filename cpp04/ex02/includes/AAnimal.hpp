@@ -19,13 +19,13 @@ class	AAnimal {
 
 protected :
 
-	string	_type;
+	std::string	_type;
 
 public :
 
 	virtual 		~AAnimal	( void ) {};
 
-	virtual string	getType		( void ) const { return this->_type; };
+	virtual std::string	getType		( void ) const { return this->_type; };
 
 	virtual void	makeSound	( void ) const = 0;
 	virtual	Brain	*getBrain	( void ) const = 0;

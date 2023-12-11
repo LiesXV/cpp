@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:24:23 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/01 18:37:36 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:42:55 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 #include <iostream>
 
-using std::cout;
-using std::cerr;
-using std::endl;
-using std::string;
+
 
 #include "Brain.hpp"
 #include "Animal.hpp"

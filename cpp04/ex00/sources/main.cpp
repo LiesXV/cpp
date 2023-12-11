@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:29:57 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/28 11:58:33 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,30 @@ int main()
 	const WrongAnimal* c = new WrongCat();
 	WrongCat cat;
 	
-	cout << endl;
+	std::cout << std::endl;
 	
-	cout << j->getType() << " " << endl;
+	std::cout << j->getType() << " " << std::endl;
 	j->makeSound();
 	
 	delete (j);
 	
-	cout << endl << i->getType() << " " << endl;
+	std::cout << std::endl << i->getType() << " " << std::endl;
 	i->makeSound();
 
 	delete (i);
 
-	cout << endl << c->getType() << " (constructed with WrongAnimal)" << endl;
+	std::cout << std::endl << c->getType() << " (constructed with WrongAnimal)" << std::endl;
 	c->makeSound();
 	
-	cout << endl << cat.getType() << " (constructed alone)" << endl;
+	std::cout << std::endl << cat.getType() << " (constructed alone)" << std::endl;
 	cat.makeSound();
 	
-	cout << endl;
+	std::cout << std::endl;
 	
 	meta->makeSound();
 	delete (meta);
 
-	cout << endl;
+	std::cout << std::endl;
 	
 	delete (c);
 

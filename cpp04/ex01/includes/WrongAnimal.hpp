@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:59:34 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/26 16:53:03 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 
 #include <iostream>
 
-using std::cout;
-using std::endl;
-using std::string;
 
 class	WrongAnimal {
 
 protected :
 
-	string	_type;	
+	std::string	_type;	
 	
 public :
 
@@ -32,7 +29,7 @@ public :
 	WrongAnimal		(const WrongAnimal &obj);
 	WrongAnimal		&operator=(const WrongAnimal &obj);
 
-	string			getType ( void ) const;
+	std::string			getType ( void ) const;
 	void			makeSound( void ) const;
 
 };

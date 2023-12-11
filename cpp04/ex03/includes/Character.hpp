@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 14:39:35 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/03 17:24:36 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ class Character : public ICharacter {
 private :
 
 	AMateria *_inventory[4];
-	string _name;
+	std::string _name;
 
 
 public :
 
 	Character	( void );
 	~Character	( void );
-	Character 	( const string &name );
+	Character 	( const std::string &name );
 	Character 	( const Character &obj );
 	Character	&operator=(const Character &obj);
 
-	string const &	getName		( void ) const;
+	std::string const &	getName		( void ) const;
 	AMateria *		getMateria	( int i ) const;
 	
 	void 			equip		( AMateria *m );

@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:01:43 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 void	ScavTrap::guardGate()
 {
 	if (this->getHitPoints() <= 0)
-		cout << this->getName() << " is dead and can't enter in Super Sayian mode." << endl;
+		std::cout << this->getName() << " is dead and can't enter in Super Sayian mode." << std::endl;
 	else if (this->getEnergyPoints() <= 0)
-		cout << this->getName() << " have not enough EPs to enter in Super Sayian mode." << endl;
+		std::cout << this->getName() << " have not enough EPs to enter in Super Sayian mode." << std::endl;
 	else
 	{
-		cout << this->getName() << " Entered in Super Sayian mode." << endl;
+		std::cout << this->getName() << " Entered in Super Sayian mode." << std::endl;
 		this->_energyPoints--;
 	}
 	return ;
@@ -30,12 +30,12 @@ void	ScavTrap::guardGate()
 void	ScavTrap::attack(const std::string& target)
 {
 	if (this->getHitPoints() <= 0)
-		cout << this->getName() << " is dead and can't attack." << endl;
+		std::cout << this->getName() << " is dead and can't attack." << std::endl;
 	else if (this->getEnergyPoints() <= 0)
-		cout << this->getName() << " have not enough EPs to attack." << endl;
+		std::cout << this->getName() << " have not enough EPs to attack." << std::endl;
 	else
 	{
-		cout << this->getName() << " is launching a Kamehameha on " << target << " causing " << this->getAttackDamages() << " damages !" << endl;
+		std::cout << this->getName() << " is launching a Kamehameha on " << target << " causing " << this->getAttackDamages() << " damages !" << std::endl;
 		this->_energyPoints--;	
 	}
 }
@@ -46,7 +46,7 @@ void	ScavTrap::attack(const std::string& target)
 
 ScavTrap::ScavTrap( void )
 {
-	cout << "Default ScavTrap Constructor Called" << endl;
+	std::cout << "Default ScavTrap Constructor Called" << std::endl;
 	this->_name = "ScavTrap";
 	this->_attackDamages = 20;
 	this->_energyPoints = 50;
@@ -54,9 +54,9 @@ ScavTrap::ScavTrap( void )
 	return ;
 }
 
-ScavTrap::ScavTrap( string name )
+ScavTrap::ScavTrap( std::string name )
 {
-	cout << "Named ScavTrap Constructor Called" << endl;
+	std::cout << "Named ScavTrap Constructor Called" << std::endl;
 	this->_name = name;
 	this->_attackDamages = 20;
 	this->_energyPoints = 50;
@@ -66,13 +66,13 @@ ScavTrap::ScavTrap( string name )
 
 ScavTrap::~ScavTrap( void )
 {
-	cout << "ScavTrap Destructor Called (" << this->getName() << ")." << endl;
+	std::cout << "ScavTrap Destructor Called (" << this->getName() << ")." << std::endl;
 	return ;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj)
 {
-	cout << "ScavTrap copy Constructor called" << endl;
+	std::cout << "ScavTrap copy Constructor called" << std::endl;
 	*this = obj;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:21:14 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 12:32:22 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Dog::Dog ( void )
 {
-	cerr << "Dog Default Constructor Called" << endl;
+	std::cerr << "Dog Default Constructor Called" << std::endl;
 	this->_type = "Dog";
 	this->_brain = new Brain ();
 	return ;
@@ -22,14 +22,14 @@ Dog::Dog ( void )
 
 Dog::~Dog ( void )
 {
-	cerr << "Dog Destructor Called" << endl;
+	std::cerr << "Dog Destructor Called" << std::endl;
 	delete this->_brain;
 	return ;
 }
 
 Dog	&Dog::operator=(const Dog &obj)
 {
-	cerr << "Dog Copy Assignement Constructor Called";
+	std::cerr << "Dog Copy Assignement Constructor Called";
 	this->_type = obj.getType();
 	for (int i = 0; i < 100; i++)
 	{
@@ -40,7 +40,7 @@ Dog	&Dog::operator=(const Dog &obj)
 
 Dog::Dog(const Dog &obj)
 {
-	cerr << "Dog Copy Constructor Called" << endl;
+	std::cerr << "Dog Copy Constructor Called" << std::endl;
 	this->_type = obj.getType();
 	this->_brain = new Brain (*obj.getBrain());
 	return ;
@@ -48,7 +48,7 @@ Dog::Dog(const Dog &obj)
 
 void	Dog::makeSound( void ) const
 {
-	cout << "Wouaf Wouaf  !" << endl;
+	std::cout << "Wouaf Wouaf  !" << std::endl;
 }
 
 Brain *	Dog::getBrain( void ) const

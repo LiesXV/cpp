@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:18:10 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 15:56:31 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,30 @@
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (amount <= 0)
-		cout << "Amount of damages must be superior to 0." << endl;
+		std::cout << "Amount of damages must be superior to 0." << std::endl;
 	if (this->getHitPoints() == 0)
-		cout << this->getName() << " is already dead." << endl;
+		std::cout << this->getName() << " is already dead." << std::endl;
 	else if (this->getEnergyPoints() > 0)
 	{
 		if (this->getHitPoints() + amount <= 65535)
 		{
 			this->_hitPoints += amount;
-			cout << this->getName() << " healed himself for " << amount << " HP's." << endl;
+			std::cout << this->getName() << " healed himself for " << amount << " HP's." << std::endl;
 		}
 		else if (this->getHitPoints() == 65535)
 		{
-			cout << this->getName() << " is already full HP's." << endl;
+			std::cout << this->getName() << " is already full HP's." << std::endl;
 			return ;
 		}
 		else
 		{
-			cout << this->getName() << " healed himself for " << 65535 - this->getHitPoints() << " HP's." << endl;
+			std::cout << this->getName() << " healed himself for " << 65535 - this->getHitPoints() << " HP's." << std::endl;
 			this->_hitPoints = 65535;
 		}
 		this->_energyPoints--;
 	}
 	else
-		cout << this->getName() << " have no more EP's." << endl;
+		std::cout << this->getName() << " have no more EP's." << std::endl;
 }
 
 
@@ -48,18 +48,18 @@ void	ClapTrap::beRepaired(unsigned int amount)
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (amount <= 0)
-		cout << "Amount of damages must be superior to 0." << endl;
+		std::cout << "Amount of damages must be superior to 0." << std::endl;
 	if (this->getHitPoints() <= 0)
-		cout << this->getName() << " is already dead." << endl;
+		std::cout << this->getName() << " is already dead." << std::endl;
 	else if (amount >= this->getHitPoints())
 	{
-		cout << this->getName() << " lost " << this->getHitPoints() << " HP's." << endl;
+		std::cout << this->getName() << " lost " << this->getHitPoints() << " HP's." << std::endl;
 		this->_hitPoints = 0;
-		cout << this->getName() << " have no more HPs..." << endl;
+		std::cout << this->getName() << " have no more HPs..." << std::endl;
 	}
 	else
 	{
-		cout << this->getName() << " lost " << amount << " HP's." << endl;
+		std::cout << this->getName() << " lost " << amount << " HP's." << std::endl;
 		this->_hitPoints -= amount;
 	}
 }
@@ -68,12 +68,12 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::attack(const std::string& target)
 {
 	if (this->getHitPoints() <= 0)
-		cout << this->getName() << " is dead and can't attack." << endl;
+		std::cout << this->getName() << " is dead and can't attack." << std::endl;
 	else if (this->getEnergyPoints() <= 0)
-		cout << this->getName() << " have not enough EPs to attack." << endl;
+		std::cout << this->getName() << " have not enough EPs to attack." << std::endl;
 	else
 	{
-		cout << this->getName() << " attacks " << target << " causing " << this->getAttackDamages() << " damages !" << endl;
+		std::cout << this->getName() << " attacks " << target << " causing " << this->getAttackDamages() << " damages !" << std::endl;
 		this->_energyPoints--;	
 	}
 }
@@ -105,7 +105,7 @@ unsigned int	ClapTrap::getHitPoints( void ) const
 
 ClapTrap::ClapTrap( void )
 {
-	cout << "Default ClapTrap Constructor Called" << endl;
+	std::cout << "Default ClapTrap Constructor Called" << std::endl;
 	this->_name = "ClapTrap";
 	this->_attackDamages = 0;
 	this->_energyPoints = 10;
@@ -115,7 +115,7 @@ ClapTrap::ClapTrap( void )
 
 ClapTrap::ClapTrap( string name )
 {
-	cout << "Named ClapTrap Constructor Called" << endl;
+	std::cout << "Named ClapTrap Constructor Called" << std::endl;
 	this->_name = name;
 	this->_attackDamages = 0;
 	this->_energyPoints = 10;
@@ -125,13 +125,13 @@ ClapTrap::ClapTrap( string name )
 
 ClapTrap::~ClapTrap( void )
 {
-	cout << "ClapTrap Destructor Called (" << this->getName() << ")." << endl;
+	std::cout << "ClapTrap Destructor Called (" << this->getName() << ")." << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-	cout << "ClapTrap copy Constructor called" << endl;
+	std::cout << "ClapTrap copy Constructor called" << std::endl;
 	*this = obj;
 	return ;
 }

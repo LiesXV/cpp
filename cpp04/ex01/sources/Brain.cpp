@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:23:18 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/01 18:53:09 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 Brain::Brain ( void )
 {
-	cerr << "Brain Default Constructor Called" << endl;
+	std::cerr << "Brain Default Constructor Called" << std::endl;
 	return ;
 }
 
 Brain::~Brain ( void )
 {
-	cerr << "Brain Destructor Called" << endl;
+	std::cerr << "Brain Destructor Called" << std::endl;
 	return ;
 }
 
 Brain	&Brain::operator=(const Brain &obj)
 {
-	cerr << "Brain Copy Assignement Constructor Called";
+	std::cerr << "Brain Copy Assignement Constructor Called";
 	for (int i = 0; i < 100; i++)
 	{
 		this->_ideas[i] = obj.getIdea(i);
@@ -36,12 +36,12 @@ Brain	&Brain::operator=(const Brain &obj)
 
 Brain::Brain(const Brain &obj)
 {
-	cerr << "Brain Copy Constructor Called" << endl;
+	std::cerr << "Brain Copy Constructor Called" << std::endl;
 	*this = obj;
 	return ;
 }
 
-string	Brain::getIdea(int i) const
+std::string	Brain::getIdea(int i) const
 {
 	if (i >= 0 && i < 100 )
 		return (this->_ideas[i]);
@@ -49,7 +49,7 @@ string	Brain::getIdea(int i) const
 		return (NULL);
 }
 
-void	Brain::setIdea(int i, string idea)
+void	Brain::setIdea(int i, std::string idea)
 {
 	if (i >= 0 && i <= 99)
 		this->_ideas[i] = idea;

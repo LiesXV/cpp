@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:20:05 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 15:14:40 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ class Bureaucrat {
 
 private :
 
-	string	_name;
+	std::string	_name;
 	int		_grade;
 
 public :
 
 	Bureaucrat		( void );
 	~Bureaucrat		( void );
-	Bureaucrat		( string const name , unsigned int grade );
+	Bureaucrat		( std::string const name , unsigned int grade );
 	Bureaucrat		( const Bureaucrat &obj );
 	Bureaucrat		&operator=( const Bureaucrat &obj );
 
-	string const	&getName ( void ) const;
+	std::string const	&getName ( void ) const;
 	unsigned int	getGrade ( void ) const;
 
 	void	signAForm		( AForm &form ) const ;

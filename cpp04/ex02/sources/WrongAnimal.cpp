@@ -14,37 +14,37 @@
 
 WrongAnimal::WrongAnimal ( void )
 {
-	cout << "WrongAnimal Default Constructor Called" << endl;
+	std::cout << "WrongAnimal Default Constructor Called" << std::endl;
 	this->_type = "N/A";
 	return ;
 }
 
 WrongAnimal::~WrongAnimal ( void )
 {
-	cout << "WrongAnimal Destructor Called" << endl;
+	std::cout << "WrongAnimal Destructor Called" << std::endl;
 	return ;
 }
 
 WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &obj)
 {
-	cout << "WrongAnimal Copy Assignement Constructor Called";
+	std::cout << "WrongAnimal Copy Assignement Constructor Called";
 	this->_type = obj.getType();
 	return (*this);
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &obj)
 {
-	cout << "WrongAnimal Copy Constructor Called" << endl;
+	std::cout << "WrongAnimal Copy Constructor Called" << std::endl;
 	*this = obj;
 	return ;
 }
 
-string	WrongAnimal::getType ( void ) const
+std::string	WrongAnimal::getType ( void ) const
 {
 	return (this->_type);
 }
 
 void	WrongAnimal::makeSound( void ) const
 {
-	cout << "WrongAnimal not recognized." << endl;
+	std::cout << "WrongAnimal not recognized." << std::endl;
 }

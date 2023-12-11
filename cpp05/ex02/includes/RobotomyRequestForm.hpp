@@ -19,19 +19,19 @@ class RobotomyRequestForm : public AForm {
 
 public :
 
-	RobotomyRequestForm		( const string &target );
+	RobotomyRequestForm		( const std::string &target );
 	RobotomyRequestForm		( const RobotomyRequestForm &obj );
 	RobotomyRequestForm		&operator=( const RobotomyRequestForm &obj );
 	~RobotomyRequestForm	( void );
 
-	const string &getTarget( void ) const;
+	const std::string &getTarget( void ) const;
 
 	void execute			( Bureaucrat const &executor );
 	
 private :
 
 	RobotomyRequestForm		( void );
-	string _target;
+	std::string _target;
 	
 };
 

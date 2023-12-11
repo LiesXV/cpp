@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 14:59:34 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/02 17:27:51 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Animal {
 
 protected :
 
-	string	_type;
+	std::string	_type;
 	
 public :
 
@@ -28,7 +28,7 @@ public :
 	Animal			(const Animal &obj);
 	Animal			&operator=(const Animal &obj);
 
-	string			getType		( void ) const;
+	std::string			getType		( void ) const;
 	virtual void	makeSound	( void ) const;
 
 

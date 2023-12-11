@@ -26,7 +26,7 @@ void	PresidentialPardonForm::execute ( Bureaucrat const &executor )
 		throw AForm::GradeTooLowException();
 	else
 	{
-		cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
+		std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 
 	}
 }
@@ -37,7 +37,7 @@ void	PresidentialPardonForm::execute ( Bureaucrat const &executor )
 ///////////////////////////////////////////////////////
 
 
-string const &	PresidentialPardonForm::getTarget ( void ) const
+std::string const &	PresidentialPardonForm::getTarget ( void ) const
 {
 	return (this->_target);
 }
@@ -50,27 +50,27 @@ string const &	PresidentialPardonForm::getTarget ( void ) const
 PresidentialPardonForm::PresidentialPardonForm ( void ) 
 	: AForm( "PresidentialPardonForm",  25, 5)
 {
-	cout << YELLOW << "PresidentialPardonForm Default Constructor Called ( Unnamed )" << END << endl;
+	std::cout << YELLOW << "PresidentialPardonForm Default Constructor Called ( Unnamed )" << END << std::endl;
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm ( const string &target ) 
+PresidentialPardonForm::PresidentialPardonForm ( const std::string &target ) 
 	: AForm( "PresidentialPardonForm",  25, 5)
 {
-	cout << YELLOW << "PresidentialPardonForm Constructor Called" << END << endl;
+	std::cout << YELLOW << "PresidentialPardonForm Constructor Called" << END << std::endl;
 	this->_target = target;
 	return ;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm ( void )
 {
-	cout << BLUE << "PresidentialPardonForm Destructor Called ( " << this->getName() << " )" << END << endl;
+	std::cout << BLUE << "PresidentialPardonForm Destructor Called ( " << this->getName() << " )" << END << std::endl;
 	return ;
 }
 
 PresidentialPardonForm &	PresidentialPardonForm::operator=(const PresidentialPardonForm &obj) 
 {
-	cout << YELLOW << "PresidentialPardonForm Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << endl;
+	std::cout << YELLOW << "PresidentialPardonForm Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << std::endl;
     this->AForm::operator=(obj);
 	return (*this);
 }
@@ -78,6 +78,6 @@ PresidentialPardonForm &	PresidentialPardonForm::operator=(const PresidentialPar
 PresidentialPardonForm::PresidentialPardonForm ( const PresidentialPardonForm &obj )
 	: AForm (obj)
 {
-	cout << YELLOW << "PresidentialPardonForm Copy Constructor Called ( " << obj.getName() << " )" << END << endl;
+	std::cout << YELLOW << "PresidentialPardonForm Copy Constructor Called ( " << obj.getName() << " )" << END << std::endl;
 	return ;
 }

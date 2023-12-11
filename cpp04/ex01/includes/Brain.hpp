@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 17:16:58 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/28 14:03:04 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ class Brain {
 
 private :
 
-	string _ideas[100];
+	std::string _ideas[100];
 
 public :
 
-	string	getIdea( int i ) const;
-	void	setIdea( int i, string idea);
+	std::string	getIdea( int i ) const;
+	void	setIdea( int i, std::string idea);
 
 	Brain	( void );
 	~Brain	( void );

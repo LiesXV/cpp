@@ -39,7 +39,7 @@ void	Character::unequip( int idx )
 
 void	Character::use ( int idx, ICharacter &target )
 {
-	if (!this->_inventory[idx])	{ cout << RED << "no materia equipped." << END << endl; return; }
+	if (!this->_inventory[idx])	{ std::cout << RED << "no materia equipped." << END << std::endl; return; }
 	
 	this->_inventory[idx]->use(target);
 }
@@ -48,7 +48,7 @@ void	Character::use ( int idx, ICharacter &target )
 //						GETTERS					     //
 ///////////////////////////////////////////////////////
 
-string const &	Character::getName ( void ) const
+std::string const &	Character::getName ( void ) const
 {
 	return (this->_name);
 }
@@ -65,7 +65,7 @@ AMateria *		Character::getMateria ( int i ) const
 
 Character::Character ( void )
 {
-	cout << "Character Constructor Called" << endl;
+	std::cout << "Character Constructor Called" << std::endl;
 	this->_name = "Unnamed";
 	for (int i = 0; i < 4; i++)
 	{
@@ -76,7 +76,7 @@ Character::Character ( void )
 
 Character::Character ( const Character &obj )
 {
-	cout << "Character Copy Constructor Called" << endl;
+	std::cout << "Character Copy Constructor Called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{	if (obj._inventory[i]) {this->_inventory[i] = obj._inventory[i]->clone();}
 		else {this->_inventory[i] = NULL;}
@@ -87,7 +87,7 @@ Character::Character ( const Character &obj )
 
 Character	&Character::operator=(const Character &obj)
 {
-    cout << "Character Copy Assignment Constructor Called" << endl;
+    std::cout << "Character Copy Assignment Constructor Called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		delete this->_inventory[i];
@@ -105,7 +105,7 @@ Character	&Character::operator=(const Character &obj)
 
 Character::~Character ( void )
 {
-	cout << "Character Destructor Called" << endl;
+	std::cout << "Character Destructor Called" << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		delete this->_inventory[i];
@@ -113,9 +113,9 @@ Character::~Character ( void )
 	return ;
 }
 
-Character::Character ( const string &name )
+Character::Character ( const std::string &name )
 {
-	cout << "Character Name Constructor Called" << endl;
+	std::cout << "Character Name Constructor Called" << std::endl;
 	this->_name = name;	
 	for (int i = 0; i < 4; i++)
 	{

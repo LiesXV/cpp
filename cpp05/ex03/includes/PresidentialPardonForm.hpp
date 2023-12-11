@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:28:23 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 15:38:20 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ class PresidentialPardonForm : public AForm {
 
 public :
 
-	PresidentialPardonForm	( const string &target );
+	PresidentialPardonForm	( const std::string &target );
 	PresidentialPardonForm	( const PresidentialPardonForm &obj );
 	PresidentialPardonForm	&operator=( const PresidentialPardonForm &obj );
 	~PresidentialPardonForm	( void );
 
-	const string &getTarget( void ) const;
+	const std::string &getTarget( void ) const;
 
 	void execute			( Bureaucrat const &executor );
 	
 private :
 
 	PresidentialPardonForm	( void );
-	string _target;
+	std::string _target;
 };
 
 #endif

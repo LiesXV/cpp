@@ -26,11 +26,11 @@ void	RobotomyRequestForm::execute ( Bureaucrat const &executor )
 		throw AForm::GradeTooLowException();
 	else
 	{
-		cout << "Makes some drilling noises" << endl;
+		std::cout << "Makes some drilling noises" << std::endl;
 		if (rand() < RAND_MAX / 2)
-			cout << this->getTarget() << " has been robotomized successfully." << endl;
+			std::cout << this->getTarget() << " has been robotomized successfully." << std::endl;
 		else
-			cout << "Robotomy on " << this->getTarget() << " has failed." << endl;
+			std::cout << "Robotomy on " << this->getTarget() << " has failed." << std::endl;
 	}
 }
 
@@ -40,7 +40,7 @@ void	RobotomyRequestForm::execute ( Bureaucrat const &executor )
 ///////////////////////////////////////////////////////
 
 
-string const &	RobotomyRequestForm::getTarget ( void ) const
+std::string const &	RobotomyRequestForm::getTarget ( void ) const
 {
 	return (this->_target);
 }
@@ -53,14 +53,14 @@ string const &	RobotomyRequestForm::getTarget ( void ) const
 RobotomyRequestForm::RobotomyRequestForm ( void ) 
 	: AForm( "RobotomyRequestForm",  72, 45)
 {
-	cout << YELLOW << "RobotomyRequestForm Default Constructor Called ( Unnamed )" << END << endl;
+	std::cout << YELLOW << "RobotomyRequestForm Default Constructor Called ( Unnamed )" << END << std::endl;
 	return ;
 }
 
-RobotomyRequestForm::RobotomyRequestForm ( const string &target ) 
+RobotomyRequestForm::RobotomyRequestForm ( const std::string &target ) 
 	: AForm( "RobotomyRequestForm",  72, 45)
 {
-	cout << YELLOW << "RobotomyRequestForm Constructor Called" << END << endl;
+	std::cout << YELLOW << "RobotomyRequestForm Constructor Called" << END << std::endl;
 	this->_target = target;
 	return ;
 }
@@ -68,13 +68,13 @@ RobotomyRequestForm::RobotomyRequestForm ( const string &target )
 
 RobotomyRequestForm::~RobotomyRequestForm ( void )
 {
-	cout << BLUE << "RobotomyRequestForm Destructor Called ( " << this->getName() << " )" << END << endl;
+	std::cout << BLUE << "RobotomyRequestForm Destructor Called ( " << this->getName() << " )" << END << std::endl;
 	return ;
 }
 
 RobotomyRequestForm &	RobotomyRequestForm::operator=(const RobotomyRequestForm &obj) 
 {
-	cout << YELLOW << "RobotomyRequestForm Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << endl;
+	std::cout << YELLOW << "RobotomyRequestForm Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << std::endl;
     this->AForm::operator=(obj);
 	return (*this);
 }
@@ -82,6 +82,6 @@ RobotomyRequestForm &	RobotomyRequestForm::operator=(const RobotomyRequestForm &
 RobotomyRequestForm::RobotomyRequestForm ( const RobotomyRequestForm &obj )
 	: AForm (obj)
 {
-	cout << YELLOW << "RobotomyRequestForm Copy Constructor Called ( " << obj.getName() << " )" << END << endl;
+	std::cout << YELLOW << "RobotomyRequestForm Copy Constructor Called ( " << obj.getName() << " )" << END << std::endl;
 	return ;
 }

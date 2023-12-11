@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 18:45:07 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 19:27:22 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Intern {
 public :
 
 
-	AForm *makeForm (const string &formName, const string &target) const ;
+	AForm *makeForm (const std::string &formName, const std::string &target) const ;
 
 	Intern	( void );
 	~Intern	( void );

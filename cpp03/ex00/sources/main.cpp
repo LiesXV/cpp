@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 19:47:45 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/11/25 18:11:05 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,52 +16,52 @@ int main(void)
 {
 	ClapTrap Goku("Goku");
 	ClapTrap Freezer("Freezer");
-	cout << endl;
+	std::cout << std::endl;
 
 	
-	cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << endl;
-	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
-	cout << Freezer.getName() << " have " << Freezer.getHitPoints() << " HP's" << endl;
-	cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << endl;
-	cout << endl;
+	std::cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << std::endl;
+	std::cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << Freezer.getName() << " have " << Freezer.getHitPoints() << " HP's" << std::endl;
+	std::cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << std::endl;
 
 	Freezer.attack("Goku");
 	Goku.takeDamage(9);
 
-	cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << endl;
-	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
-	cout << endl;	
+	std::cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << std::endl;
+	std::cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << std::endl;	
 
-	cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << endl;
-	cout << endl;	
+	std::cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << std::endl;	
 
 	Goku.beRepaired(10);
 	
-	cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << endl;
-	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
-	cout << endl;	
+	std::cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << std::endl;
+	std::cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << std::endl;	
 	
 	Goku.attack("Freezer");
 	Freezer.takeDamage(20);
-	cout << endl;	
-	cout << Freezer.getName() << " have " << Freezer.getHitPoints() << " HP's" << endl;
-	cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << endl;
-	cout << endl;	
+	std::cout << std::endl;	
+	std::cout << Freezer.getName() << " have " << Freezer.getHitPoints() << " HP's" << std::endl;
+	std::cout << Freezer.getName() << " have " << Freezer.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << std::endl;	
 	
-	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
-	cout << endl;	
+	std::cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << std::endl;	
 	
 	
 	Freezer.beRepaired(20);
-	cout << endl;
+	std::cout << std::endl;
 	
 	Goku.attack("Freezer");
 	Freezer.takeDamage(20);
-	cout << endl;	
+	std::cout << std::endl;	
 	
 	
-	cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << endl;
-	cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << endl;
-	cout << endl;	
+	std::cout << Goku.getName() << " have " << Goku.getHitPoints() << " HP's" << std::endl;
+	std::cout << Goku.getName() << " have " << Goku.getEnergyPoints() << " EP's" << std::endl;
+	std::cout << std::endl;	
 
 }

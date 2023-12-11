@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:18:41 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/01 19:27:31 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:45:28 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat ( void )
 {
-	cerr << "Cat Default Constructor Called" << endl;
+	std::cerr << "Cat Default Constructor Called" << std::endl;
 	this->_type = "Cat";
 	this->_brain = new Brain ();
 	return ;
@@ -22,14 +22,14 @@ Cat::Cat ( void )
 
 Cat::~Cat ( void )
 {
-	cerr << "Cat Destructor Called" << endl;
+	std::cerr << "Cat Destructor Called" << std::endl;
 	delete this->_brain;
 	return ;
 }
 
 Cat	&Cat::operator=(const Cat &obj)
 {
-	cerr << "Cat Copy Assignement Constructor Called";
+	std::cerr << "Cat Copy Assignement Constructor Called";
 	this->_type = obj.getType();
 	for (int i = 0; i < 100; i++)
 	{
@@ -40,7 +40,7 @@ Cat	&Cat::operator=(const Cat &obj)
 
 Cat::Cat(const Cat &obj)
 {
-	cerr << "Cat Copy Constructor Called" << endl;
+	std::cerr << "Cat Copy Constructor Called" << std::endl;
 	this->_type = obj.getType();
 	this->_brain = new Brain (*obj.getBrain());
 	return ;
@@ -48,7 +48,7 @@ Cat::Cat(const Cat &obj)
 
 void	Cat::makeSound( void ) const
 {
-	cout << "Miaouuuu  !" << endl;
+	std::cout << "Miaouuuu  !" << std::endl;
 }
 
 Brain *	Cat::getBrain( void ) const

@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:29:52 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/07 16:33:49 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2023/12/10 14:50:16 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ void	ShrubberyCreationForm::execute ( Bureaucrat const &executor )
 		std::ofstream ofs((this->getTarget() + "_shrubbery").c_str());
 		if (!ofs.is_open())
 			throw std::ofstream::failure("Cannot open file.");
-		ofs << "          .     .  .      +     .      .          ." << endl
-		<< "     .       .      .     #       .           ." << endl
-		<< "        .      .         ###            .      .      ." << endl
-		<< "      .      .   \"#:. .:##\"##:. .:#\"  .      ." << endl
-		<< "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       ." << endl
-		<< ".             \"#########\"#########\"        .        ." << endl
-		<< "       .    \"#:.  \"####\"###\"####\"  .:#\"   .       ." << endl
-		<< "    .     .  \"#######\"\"##\"##\"\"#######\"                  ." << endl
-		<< "               .\"##\"#####\"#####\"##\"           .      ." << endl
-		<< "   .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     ." << endl
-		<< "    .     \"#######\"##\"#####\"##\"#######\"      .     ." << endl
-		<< "  .    .     \"#####\"\"#######\"\"#####\"    .      ." << endl
-		<< "           .     \"      000      \"    .     ." << endl
-		<< "      .         .   .   000     .        .       ." << endl
-		<< ".. .. .................O000O........................ ......" << endl 
-		<< "                HAPPY          CHRISTMAS                   "<< endl;
+		ofs << "          .     .  .      +     .      .          ." << std::endl
+		<< "     .       .      .     #       .           ." << std::endl
+		<< "        .      .         ###            .      .      ." << std::endl
+		<< "      .      .   \"#:. .:##\"##:. .:#\"  .      ." << std::endl
+		<< "       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       ." << std::endl
+		<< ".             \"#########\"#########\"        .        ." << std::endl
+		<< "       .    \"#:.  \"####\"###\"####\"  .:#\"   .       ." << std::endl
+		<< "    .     .  \"#######\"\"##\"##\"\"#######\"                  ." << std::endl
+		<< "               .\"##\"#####\"#####\"##\"           .      ." << std::endl
+		<< "   .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     ." << std::endl
+		<< "    .     \"#######\"##\"#####\"##\"#######\"      .     ." << std::endl
+		<< "  .    .     \"#####\"\"#######\"\"#####\"    .      ." << std::endl
+		<< "           .     \"      000      \"    .     ." << std::endl
+		<< "      .         .   .   000     .        .       ." << std::endl
+		<< ".. .. .................O000O........................ ......" << std::endl 
+		<< "                HAPPY          CHRISTMAS                   "<< std::endl;
 	}
 }
 
@@ -53,7 +53,7 @@ void	ShrubberyCreationForm::execute ( Bureaucrat const &executor )
 ///////////////////////////////////////////////////////
 
 
-string const &	ShrubberyCreationForm::getTarget ( void ) const
+std::string const &	ShrubberyCreationForm::getTarget ( void ) const
 {
 	return (this->_target);
 }
@@ -67,27 +67,27 @@ string const &	ShrubberyCreationForm::getTarget ( void ) const
 ShrubberyCreationForm::ShrubberyCreationForm ( void ) 
 	: AForm( "ShrubberyCreationForm",  145, 137)
 {
-	cout << YELLOW << "ShrubberyCreationForm Default Constructor Called ( Unnamed )" << END << endl;
+	std::cout << YELLOW << "ShrubberyCreationForm Default Constructor Called ( Unnamed )" << END << std::endl;
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm ( const string &target ) 
+ShrubberyCreationForm::ShrubberyCreationForm ( const std::string &target ) 
 	: AForm( "ShrubberyCreationForm",  145, 137)
 {
-	cout << YELLOW << "ShrubberyCreationForm Default Constructor Called ( Unnamed )" << END << endl;
+	std::cout << YELLOW << "ShrubberyCreationForm Default Constructor Called ( Unnamed )" << END << std::endl;
 	this->_target = target;
 	return ;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm ( void )
 {
-	cout << BLUE << "ShrubberyCreationForm Destructor Called ( " << this->getName() << " )" << END << endl;
+	std::cout << BLUE << "ShrubberyCreationForm Destructor Called ( " << this->getName() << " )" << END << std::endl;
 	return ;
 }
 
 ShrubberyCreationForm &	ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) 
 {
-	cout << YELLOW << "ShrubberyCreationForm Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << endl;
+	std::cout << YELLOW << "ShrubberyCreationForm Copy Assignment Constructor Called ( " << obj.getName() << " )" << END << std::endl;
     this->AForm::operator=(obj);
 	return (*this);
 }
@@ -95,6 +95,6 @@ ShrubberyCreationForm &	ShrubberyCreationForm::operator=(const ShrubberyCreation
 ShrubberyCreationForm::ShrubberyCreationForm ( const ShrubberyCreationForm &obj )
 	: AForm (obj)
 {
-	cout << YELLOW << "ShrubberyCreationForm Copy Constructor Called ( " << obj.getName() << " )" << END << endl;
+	std::cout << YELLOW << "ShrubberyCreationForm Copy Constructor Called ( " << obj.getName() << " )" << END << std::endl;
 	return ;
 }
