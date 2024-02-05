@@ -14,7 +14,6 @@
 # define BTC_EXCH_HPP
 
 #include <cstdlib>
-#include <map>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -22,6 +21,7 @@
 #include <exception>
 #include <ctime>
 #include <cstring>
+#include <map>
 
 # define END		"\033[0m"
 # define BLACK		"\033[30m"
@@ -53,13 +53,14 @@ private :
 	}
 
 	//		FUNCTIONS
-	void									fillDataMap ( void );
+	void	fillDataMap ( void );
+	void 	readFile ();
+	void	trimStr (std::string* str1, std::string* str2);
+	void	convertValue (const std::string& date, float rate);
+	void	checkValidDate(const std::string& date);
+	float	checkValidRate(const std::string& rate);
+
 	std::map<std::string, float>::iterator	findDataByKey (const std::string& date);
-	void 									readFile ();
-	void									trimStr (std::string* str1, std::string* str2);
-	void									convertValue (const std::string& date, float rate);
-	void									checkValidDate(const std::string& date);
-	float									checkValidRate(const std::string& rate);
 	std::map<std::string, float>::iterator	findPreviousDate(const std::string& date);
 
 public :
@@ -67,15 +68,12 @@ public :
 	BitcoinExchange( std::string &filename ) : _filename(filename) {};
 	~BitcoinExchange( void );
 
-
 	//		FUNCTIONS
 	void	convert	( void );
-
 
 	//		GETTERS
 	const std::map<std::string, float>&		getData() const { return _dataMap; } 
 	const std::string&						getFilename() const { return _filename; }
-
 
 	//		EXCEPTION
 	class dataFileMissingException : public std::exception {
@@ -98,8 +96,6 @@ public :
 			return "Bad Format.";
 		}
 	};
-
-
 
 };
 

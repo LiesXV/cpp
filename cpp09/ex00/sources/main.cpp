@@ -12,8 +12,6 @@
 
 #include "../includes/BitcoinExchange.hpp"
 
-	//		PARSE data.csv
-
 int main(int argc, char** argv)
 {
 	if (argc != 2)

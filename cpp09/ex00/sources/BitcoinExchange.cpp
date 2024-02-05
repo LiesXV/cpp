@@ -111,8 +111,11 @@ void BitcoinExchange::checkValidDate(const std::string& date)
 	char	buffer[11];
 	strftime(buffer, sizeof(buffer), "%Y-%m-%d", normalizedTimeStruct);
 
+	
 	std::string	normalizedDate(buffer);
 	if (date != normalizedDate) { throw badFormatException(); }
+
+	if (normalizedDate < "2009-01-02" || normalizedDate > "2029-12-31" ) { throw badFormatException(); }
 }
 
 
