@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 15:08:54 by ibenhaim          #+#    #+#             */
-/*   Updated: 2024/01/02 14:44:14 by ibenhaim         ###   ########.fr       */
+/*   Created: 2023/12/10 14:56:31 by ibenhaim          #+#    #+#             */
+/*   Updated: 2024/01/02 13:00:32 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScalarConverter.hpp"
+class Base	{	
+public:
+	Base(){}
+	virtual ~Base(){}
+};
 
-int main(int argc, char **argv)
-{
-	if (argc < 2)
-	{
-		std::cout << "[ERROR] The program needs an argument." << std::endl;
-		return (1);
-	}
-	
-	ScalarConverter	converter = ScalarConverter();
-	converter.convert(argv[1]);
+class A : public Base	{
+public:
+	A(){}
+	~A(){}
+};
 
-	return (0);
-}
+class B : public Base	{
+public:
+	B(){}
+	~B(){}
+};
+
+class C : public Base	{
+public:
+	C(){}
+	~C(){}
+};

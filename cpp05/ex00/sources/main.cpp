@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:38:51 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/10 14:51:04 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2024/01/02 09:48:13 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,19 @@ int main (void)
 	}
 	std::cout << std::endl;
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
 	try 	//	Tentative de création d'un Bureaucrat de grade 0.
 	{ 
 		Bureaucrat *bob;
@@ -43,6 +56,24 @@ int main (void)
 		std::cerr << RED << e.what() << END << std::endl;
 	}
 	std::cout << std::endl;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	try 	//	Tentative de création d'un Bureaucrat de grade 160.
 	{ 

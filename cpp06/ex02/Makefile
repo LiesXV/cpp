@@ -6,19 +6,18 @@
 #    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/10 14:39:49 by ibenhaim          #+#    #+#              #
-#    Updated: 2024/01/04 12:52:04 by ibenhaim         ###   ########.fr        #
+#    Updated: 2024/01/02 12:59:53 by ibenhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	ScalarConverter
+NAME		=	typeIdentifier
 
 DIR_SRCS	=	sources/
 DIR_INC		=	includes/
 
 SRCS		=	${DIR_SRCS}main.cpp\
-				${DIR_SRCS}ScalarConverter.cpp\
 
-INC			=	${DIR_INC}ScalarConverter.hpp\
+INC			=	${DIR_INC}Base.hpp\
 
 DIR_OBJS	=	.objs/
 

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 15:08:54 by ibenhaim          #+#    #+#             */
-/*   Updated: 2024/01/02 14:44:14 by ibenhaim         ###   ########.fr       */
+/*   Created: 2023/12/10 14:56:31 by ibenhaim          #+#    #+#             */
+/*   Updated: 2024/01/02 12:53:51 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScalarConverter.hpp"
+#pragma once
+#include <string>
+#include <stdint.h>
 
-int main(int argc, char **argv)
+typedef struct
 {
-	if (argc < 2)
-	{
-		std::cout << "[ERROR] The program needs an argument." << std::endl;
-		return (1);
-	}
-	
-	ScalarConverter	converter = ScalarConverter();
-	converter.convert(argv[1]);
+	std::string	firstName;
+	std::string lastName;
+	std::string nickname;
+	int			age;
+	double		level;
+} Data;
 
-	return (0);
-}
+Data* deserialize(uintptr_t raw);
+uintptr_t serialize(Data* ptr);
