@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:07:17 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/10 15:33:08 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2024/02/06 14:15:00 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void BitcoinExchange::convert  ( void )
 void BitcoinExchange::fillDataMap ( void )
 {
 	std::string filename("./sources/data.csv");
-	std::ifstream file(filename.c_str()); //open
+	std::ifstream file(filename.c_str());
 	if (!file.is_open())
 	{
 		throw  dataFileMissingException();
@@ -39,7 +39,6 @@ void BitcoinExchange::fillDataMap ( void )
 	std::getline(file, line);
 	while (std::getline(file, line))
 	{
-		// Process each line here
 		std::string date, value;
 		size_t commaPos = line.find(',');
 		if (commaPos != std::string::npos)
@@ -121,22 +120,18 @@ void BitcoinExchange::checkValidDate(const std::string& date)
 
 void BitcoinExchange::trimStr(std::string* str1, std::string* str2)
 {
-	// Trim leading whitespaces
 	size_t start = str1->find_first_not_of(" \t\n\r\f\v");
 	if (start != std::string::npos)
 		*str1 = str1->substr(start);
 
-	// Trim trailing whitespaces
 	size_t end = str1->find_last_not_of(" \t\n\r\f\v");
 	if (end != std::string::npos)
 		*str1 = str1->substr(0, end + 1);
 
-	// Trim leading whitespaces
 	start = str2->find_first_not_of(" \t\n\r\f\v");
 	if (start != std::string::npos)
 		*str2 = str2->substr(start);
 
-	// Trim trailing whitespaces
 	end = str2->find_last_not_of(" \t\n\r\f\v");
 	if (end != std::string::npos)
 		*str2 = str2->substr(0, end + 1);
