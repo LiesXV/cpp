@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                           :+:      :+:    :+:   */
+/*   PMergeMe.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,15 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-# define RPN_HPP
+#ifndef PMERGE_HPP
+# define PMERGE_HPP
 
-#include <stack>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <list>
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <cctype>
-#include <cstdlib>
 
 # define END		"\033[0m"
 # define BLACK		"\033[30m"
@@ -30,52 +31,48 @@
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
 
-class RPN {
+class PMergeMe {
 
 private :
 
-	std::string	_arg;
-	std::stack<int>	_stack;
+	int									_oddNbr;
+	std::vector<int>					_numbers;
+	std::vector<int>					_sequence;
+	std::vector<std::pair<int, int> >	_sortedPairs; 
 
-	RPN( void ) {};
-	RPN(const RPN& other) : _arg(other._arg) {};
+	PMergeMe(const PMergeMe& other) : _numbers(other._numbers) {};
 	
 	//		SURCHARGE D'OPERATEUR
-	RPN& operator=(const RPN& other) {
+	PMergeMe& operator=(const PMergeMe& other) {
 		if (this != &other) {
-			this->_arg = other.getArg();
-			this->_stack = other.getStack();
+			this->_numbers = other.getNumbers();
 		}
 		return *this;
 	}
 
 	//		FUNCTIONS
-	void	 operate( char operand );
+	void pairSort( void );
+	void pushSequence(std::vector<std::pair<int, int> > *sequence, std::vector<std::pair<int, int> > tmp, int size);
+	void recursiveSort(std::vector<std::pair<int, int> > *sequence);
+	void makeGroups( void );
 
 public :
 	//		CONSTRUCTEURS
-	RPN( std::string &arg ) : _arg(arg) {};
-	~RPN( void ) {};
+	PMergeMe( void )  : _oddNbr(-1) {};
+	~PMergeMe( void ) {};
 
 	//		FUNCTIONS
-	void	calculate	( void );
+	void	checkArgs ( int argc, char **argv );
+	void	sort ( void );
 
 	//		GETTERS
-	const std::string&	getArg() const { return _arg; };
-	const std::stack<int>&	getStack() const { return _stack; };
+	const std::vector<int>&	getNumbers() const { return _numbers; };
 
 	//		EXCEPTION
 	class BadArgsException : public std::exception {
 	public:
 		virtual const char* what() const throw() {
 			return "Bad arguments";
-		}
-	};
-
-	class DivByZeroException : public std::exception {
-	public:
-		virtual const char* what() const throw() {
-			return "Division by Zero";
 		}
 	};
 

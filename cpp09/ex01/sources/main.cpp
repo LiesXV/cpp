@@ -6,7 +6,7 @@
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 15:08:54 by ibenhaim          #+#    #+#             */
-/*   Updated: 2023/12/10 15:30:13 by ibenhaim         ###   ########.fr       */
+/*   Updated: 2024/02/07 09:40:04 by ibenhaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Usage: " << argv[0] << " <filename>" << std::endl;
+		std::cout << YELLOW << "Usage: " << argv[0] << " \"numbers with their operands..\"" << END << std::endl;
 		return 1;
 	}
 

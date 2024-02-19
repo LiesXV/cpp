@@ -6,20 +6,20 @@
 #    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/10 14:39:49 by ibenhaim          #+#    #+#              #
-#    Updated: 2024/02/06 16:29:50 by ibenhaim         ###   ########.fr        #
+#    Updated: 2024/02/06 17:05:56 by ibenhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	RPN
+NAME		=	PMergeMe
 
 DIR_SRCS	=	sources/
 DIR_INC		=	includes/
 
 SRCS		=	${DIR_SRCS}main.cpp\
-				${DIR_SRCS}RPN.cpp\
+				${DIR_SRCS}PMergeMe.cpp\
 
 INC			=	\
-				${DIR_INC}RPN.hpp\
+				${DIR_INC}PMergeMe.hpp\
 
 DIR_OBJS	=	.objs/
 

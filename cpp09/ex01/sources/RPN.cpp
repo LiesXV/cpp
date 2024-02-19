@@ -12,21 +12,71 @@
 
 #include "../includes/RPN.hpp"
 
-
-
-#include <cctype>
-
-bool hasNumbersGreaterThanNine(const std::string& str)
+void RPN::operate(char operand)
 {
-	for (std::string::size_type i = 0; i < str.length(); i++) // Change the data type of 'i' to 'std::string::size_type'
+	switch (operand)
 	{
-		char c = str[i];
-		if (std::isdigit(c) && c > '9')
+		case '+':
 		{
-			throw RPN::BadArgsException(); // Throw exception if digit is greater than '9'
+			if (this->_stack.size() < 2)
+			{
+				throw BadArgsException();
+			}
+			int operand2 = this->_stack.top();
+			this->_stack.pop();
+			int operand1 = this->_stack.top();
+			this->_stack.pop();
+			int result = operand1 + operand2;
+			this->_stack.push(result);
+			break;
 		}
+		case '-':
+		{
+			if (this->_stack.size() < 2)
+			{
+				throw BadArgsException();
+			}
+			int operand2 = this->_stack.top();
+			this->_stack.pop();
+			int operand1 = this->_stack.top();
+			this->_stack.pop();
+			int result = operand1 - operand2;
+			this->_stack.push(result);
+			break;
+		}
+		case '*':
+		{
+			if (this->_stack.size() < 2)
+			{
+				throw BadArgsException();
+			}
+			int operand2 = this->_stack.top();
+			this->_stack.pop();
+			int operand1 = this->_stack.top();
+			this->_stack.pop();
+			int result = operand1 * operand2;
+			this->_stack.push(result);
+			break;
+		}
+		case '/':
+		{
+			if (this->_stack.size() < 2)
+			{
+				throw BadArgsException();
+			}
+			int operand2 = this->_stack.top();
+			this->_stack.pop();
+			int operand1 = this->_stack.top();
+			this->_stack.pop();
+			if (operand2 == 0)
+				throw DivByZeroException();
+			int result = operand1 / operand2;
+			this->_stack.push(result);
+			break;
+		}
+		default:
+			break;
 	}
-	return true; // Add a return statement
 }
 
 void RPN::calculate()
@@ -36,8 +86,23 @@ void RPN::calculate()
 		throw RPN::BadArgsException();
 	}
 
-	 (this->_arg); // Call the function to check for numbers greater than 9
+	for (size_t i = 0; i < this->_arg.length(); i++)
+	{
+		if (std::isdigit(this->_arg[i]) || this->_arg[i] == '+' || this->_arg[i] == '-' || this->_arg[i] == '*' || this->_arg[i] == '/')
+		{
+			if (std::isdigit(this->_arg[i]) && std::isspace(this->_arg[i + 1]))
+			{
+				this->_stack.push(atoi(this->_arg.substr(i, 1).c_str()));
+			}
+			else if ((this->_arg[i] == '+' || this->_arg[i] == '-' || this->_arg[i] == '*' || this->_arg[i] == '/') && (std::isspace(this->_arg[i + 1]) || this->_arg[i + 1] == '\0'))
+				operate(this->_arg[i]);
+			else	
+				throw BadArgsException();
+		}
+	}
 
-	// Rest of the code...
+	if (this->_stack.size() != 1)
+		throw BadArgsException();
+	std::cout << this->_stack.top() << std::endl;
 }
 
