@@ -16,7 +16,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
-#include <list>
+#include <deque>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -31,19 +31,21 @@
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
 
-class PMergeMe {
+class PMergeMeVector {
 
 private :
 
 	int									_oddNbr;
 	std::vector<int>					_numbers;
 	std::vector<int>					_sequence;
-	std::vector<std::pair<int, int> >	_sortedPairs; 
+	std::vector<int>					_groups;
+	std::vector<int> 					_index;
+	std::vector<std::pair<int, int> >	_sortedPairs;
 
-	PMergeMe(const PMergeMe& other) : _numbers(other._numbers) {};
+	PMergeMeVector(const PMergeMeVector& other) : _numbers(other._numbers) {};
 	
 	//		SURCHARGE D'OPERATEUR
-	PMergeMe& operator=(const PMergeMe& other) {
+	PMergeMeVector& operator=(const PMergeMeVector& other) {
 		if (this != &other) {
 			this->_numbers = other.getNumbers();
 		}
@@ -52,14 +54,15 @@ private :
 
 	//		FUNCTIONS
 	void pairSort( void );
-	void pushSequence(std::vector<std::pair<int, int> > *sequence, std::vector<std::pair<int, int> > tmp, int size);
-	void recursiveSort(std::vector<std::pair<int, int> > *sequence);
+	// void pushSequence(std::vector<std::pair<int, int> > *sequence, std::vector<std::pair<int, int> > tmp, int size);
+	void recursiveSort(std::vector<int> *sequence);
 	void makeGroups( void );
+	void binarySearch( void );
 
 public :
 	//		CONSTRUCTEURS
-	PMergeMe( void )  : _oddNbr(-1) {};
-	~PMergeMe( void ) {};
+	PMergeMeVector( void )  : _oddNbr(-1) {};
+	~PMergeMeVector( void ) {};
 
 	//		FUNCTIONS
 	void	checkArgs ( int argc, char **argv );
@@ -67,6 +70,12 @@ public :
 
 	//		GETTERS
 	const std::vector<int>&	getNumbers() const { return _numbers; };
+	const std::vector<int>&	getSequence() const { return _sequence; };
+	// getsortedPairs
+	const std::vector<std::pair<int, int> >&	getSortedPairs() const { return _sortedPairs; };
+
+	//		SETTERS
+	void	setNumbers(std::vector<int> numbers) { _numbers = numbers; };
 
 	//		EXCEPTION
 	class BadArgsException : public std::exception {
@@ -77,5 +86,76 @@ public :
 	};
 
 };
+
+class PMergeMeDeque {
+
+private :
+
+	int									_oddNbr;
+	std::deque<int>					_numbers;
+	std::deque<int>					_sequence;
+	std::deque<int>					_groups;
+	std::deque<int> 					_index;
+	std::deque<std::pair<int, int> >	_sortedPairs;
+
+	PMergeMeDeque(const PMergeMeDeque& other) : _numbers(other._numbers) {};
+	
+	//		SURCHARGE D'OPERATEUR
+	PMergeMeDeque& operator=(const PMergeMeDeque& other) {
+		if (this != &other) {
+			this->_numbers = other.getNumbers();
+		}
+		return *this;
+	}
+
+	//		FUNCTIONS
+	void pairSort( void );
+	void pushSequence(std::deque<std::pair<int, int> > *sequence, std::deque<std::pair<int, int> > tmp, int size);
+	void recursiveSort(std::deque<std::pair<int, int> > *sequence);
+	void makeGroups( void );
+	void binarySearch( void );
+
+public :
+	//		CONSTRUCTEURS
+	PMergeMeDeque( void )  : _oddNbr(-1) {};
+	~PMergeMeDeque( void ) {};
+
+	//		FUNCTIONS
+	void	checkArgs ( int argc, char **argv );
+	void	sort ( void );
+
+	//		GETTERS
+	const std::deque<int>&	getNumbers() const { return _numbers; };
+
+	//		EXCEPTION
+	class BadArgsException : public std::exception {
+	public:
+		virtual const char* what() const throw() {
+			return "Bad arguments";
+		}
+	};
+
+};
+
+
+
+template <typename T>
+void afterSortingCheck(const T& container) 
+{
+	typename T::const_iterator it = container.begin();
+	typename T::const_iterator next = it;
+	next++;
+	while (next != container.end()) 
+	{
+		if (*it > *next) 
+		{
+			std::cout<< "Error: container of digit is not sorted" << std::endl;
+			throw std::exception();
+		}
+		it++;
+		next++;
+	}
+	return ;
+}
 
 #endif

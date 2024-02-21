@@ -1,0 +1,17 @@
+Avant le tri : 8 6 2 1 5 7 4 
+Paires swappées : (8, 6) (2, 1) (7, 5) 
+
+Avant le tri : 8 2 7 
+Paires swappées : (8, 2) 
+
+
+sortedPairs triés avec l'élément appareillé au premier: (2, -1) (8, -1) (-1, 7) Elements non insérés: 
+groupSize = 2
+Group 0 :   2  8
+
+Group 0 :   8  2
+
+Index 0 :   4  3
+
+Index 4 : 8
+Index 3 : 2

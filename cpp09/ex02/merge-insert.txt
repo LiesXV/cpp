@@ -1,1 +1,0 @@
-Insérer le reste des ⌈𝑛/2⌉−1 éléments de 𝑋∖𝑆 dans 𝑆, un à la fois, avec un ordre d'insertion spécialement choisi décrit ci-dessous. Utiliser la recherche dichotomique dans les sous-séquences de 𝑆 (comme décrit ci-dessous) pour déterminer la position à laquelle chaque élément doit être inséré.
