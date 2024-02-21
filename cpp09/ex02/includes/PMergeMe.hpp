@@ -41,6 +41,7 @@ private :
 	std::vector<int>					_groups;
 	std::vector<int> 					_index;
 	std::vector<std::pair<int, int> >	_sortedPairs;
+	std::vector<std::pair<int, int> >	_newSortedPairs;
 
 	PMergeMeVector(const PMergeMeVector& other) : _numbers(other._numbers) {};
 	
@@ -58,6 +59,7 @@ private :
 	void recursiveSort(std::vector<int> *sequence);
 	void makeGroups( void );
 	void binarySearch( void );
+	int findSecond(int first);
 
 public :
 	//		CONSTRUCTEURS

@@ -97,18 +97,49 @@ void PMergeMeVector::sort()
 	this->recursiveSort(&this->_numbers); 
 
 	std::cout << std::endl;
+	std::cout << std::endl;
 
-	// Ajouter les éléments de la liste "sortedPairs" à la liste "sequence"
-	this->_sequence.push_back(this->_sortedPairs[0].second);
-	for (size_t i = 0; i < this->_sortedPairs.size(); i++) 
+	// Afficher les éléments de la liste "numbers" après le tri récursif
+	std::cout << "Séquence après tri récursif : ";
+	for (size_t i = 0; i < this->_numbers.size(); i++)
 	{
-		if (this->_sortedPairs[i].first != -1) {
-			this->_sequence.push_back(this->_sortedPairs[i].first);
-		}
+		std::cout << " " << this->_numbers[i];
 	}
+	std::cout << std::endl;
+
+	// Afficher les éléments de la liste "numbers" après le tri récursif
+	std::cout << "SortedPair après tri récursif : ";
+	for (size_t i = 0; i < this->_sortedPairs.size(); i++)
+	{
+		std::cout << " (" << this->_sortedPairs[i].first << ", " << this->_sortedPairs[i].second << ")";
+	}
+	std::cout << std::endl;
+
+
+
+	// this->_sequence.push_back(this->_sortedPairs[0].second);
+	// Ajouter les éléments de la liste "sortedPairs" à la liste "sequence"
+	for (size_t i = 0; i < this->_numbers.size(); i++) 
+	{
+		this->_newSortedPairs.push_back(std::make_pair(this->_numbers[i], this->findSecond(this->_numbers[i])));
+	}
+
+	// Afficher les éléments de la liste "newSortedPairs"
+	std::cout << "newSortedPairs : ";
+	for (size_t i = 0; i < this->_newSortedPairs.size(); i++)
+	{
+		std::cout << "(" << this->_newSortedPairs[i].first << ", " << this->_newSortedPairs[i].second << ") ";
+	}
+	std::cout << std::endl;
 
 	// std::cout << "(" << this->_sortedPairs.begin()->first << ", " << this->_sortedPairs.begin()->second << ") ";
 	
+	// Ajouter le premier élément de la liste "sortedPairs" à la liste "sequence"
+	for (size_t i = 0; i < this->_newSortedPairs.size(); i++)
+	{
+		this->_sequence.push_back(this->_newSortedPairs[i].first);
+	}
+
 	// Supprimer le premier élément de la liste "sortedPairs"
 	this->_sortedPairs.erase(this->_sortedPairs.begin());	
 
@@ -173,6 +204,19 @@ void PMergeMeVector::sort()
 		std::cerr << "[ERROR] " << e.what() << std::endl;
 	}
 
+}
+
+// fonction qui parcours sortedPair, qui cherche un first et qui return le second qui lui est associé
+int PMergeMeVector::findSecond(int first)
+{
+	for (size_t i = 0; i < this->_sortedPairs.size(); i++)
+	{
+		if (this->_sortedPairs[i].first == first)
+		{
+			return this->_sortedPairs[i].second;
+		}
+	}
+	return -1;
 }
 
 void PMergeMeVector::binarySearch( void )
@@ -333,6 +377,13 @@ void PMergeMeVector::recursiveSort(std::vector<int> *sequence)
 	if (sequence->size() == 1)
 		return;
 
+	std::cout << "Sequence non triée: ";
+	for (size_t i = 0; i < sequence->size(); i++)
+	{
+		std::cout << " " << sequence->at(i);
+	}
+	std::cout << std::endl;
+
 	PMergeMeVector tmp;
 
 	tmp.setNumbers(*sequence);
@@ -351,6 +402,7 @@ void PMergeMeVector::recursiveSort(std::vector<int> *sequence)
 		std::cout << " " << sequence->at(i);
 	}
 	
+	std::cout << std::endl;
 
 	// std::cout << std::endl;
 
