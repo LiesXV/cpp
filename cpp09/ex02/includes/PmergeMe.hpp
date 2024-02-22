@@ -30,6 +30,7 @@
 # define MAGENTA	"\033[35m"
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
+# define DEBUG 0
 
 class PmergeMeVector {
 
@@ -54,6 +55,8 @@ private :
 	}
 
 	//		FUNCTIONS
+
+	int		checkNumbersSize(int size);
 	int		findSecond(int first); 
 	void	pairSort( void );
 	void	makeGroups( void );
