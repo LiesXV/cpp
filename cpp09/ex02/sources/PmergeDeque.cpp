@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PMergeMeDeque.cpp                                :+:      :+:    :+:   */
+/*   PmergeMeDeque.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 
-#include "../includes/PMergeMe.hpp"
+#include "../includes/PmergeMe.hpp"
 
-void PMergeMeDeque::pairSort()
+void PmergeMeDeque::pairSort()
 {
 	for (size_t i = 0; i < this->_numbers.size(); i += 2)
 	{
@@ -28,7 +28,7 @@ void PMergeMeDeque::pairSort()
 }
 
 
-void PMergeMeDeque::sort()
+void PmergeMeDeque::sort()
 {
 	// Afficher les éléments de la dequee "numbers" avant le tri
 	std::cout << "Avant le tri : ";
@@ -121,7 +121,7 @@ void PMergeMeDeque::sort()
 
 }
 
-void PMergeMeDeque::binarySearch( void )
+void PmergeMeDeque::binarySearch( void )
 {
 	for (size_t i = 0; i < this->_groups.size(); i++)
 	{
@@ -157,7 +157,7 @@ void PMergeMeDeque::binarySearch( void )
 	}
 }
 
-void PMergeMeDeque::makeGroups( void )
+void PmergeMeDeque::makeGroups( void )
 {
 	std::deque<std::deque<int> > groups;
 	size_t start = 0;
@@ -250,7 +250,7 @@ void PMergeMeDeque::makeGroups( void )
 
 }
 
-void PMergeMeDeque::checkArgs(int argc, char **argv)
+void PmergeMeDeque::checkArgs(int argc, char **argv)
 {
 	for (int i = 1; i < argc; i++)
 	{
@@ -276,7 +276,7 @@ void PMergeMeDeque::checkArgs(int argc, char **argv)
 	}
 }
 	
-void PMergeMeDeque::recursiveSort(std::deque<std::pair<int, int> > *sequence)
+void PmergeMeDeque::recursiveSort(std::deque<std::pair<int, int> > *sequence)
 {
 	std::deque<std::pair<int, int> > tmp;
 
@@ -291,7 +291,7 @@ void PMergeMeDeque::recursiveSort(std::deque<std::pair<int, int> > *sequence)
 	pushSequence(sequence, tmp, sequence->size());
 }
 
-void PMergeMeDeque::pushSequence(std::deque<std::pair<int, int> > *sequence, std::deque<std::pair<int, int> > tmp, int size)
+void PmergeMeDeque::pushSequence(std::deque<std::pair<int, int> > *sequence, std::deque<std::pair<int, int> > tmp, int size)
 {
 	if (tmp.empty()) {
 		return;

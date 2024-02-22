@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PMergeMe.hpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -31,7 +31,7 @@
 # define CYAN		"\033[36m"
 # define WHITE		"\033[37m"
 
-class PMergeMeVector {
+class PmergeMeVector {
 
 private :
 
@@ -43,10 +43,10 @@ private :
 	std::vector<std::pair<int, int> >	_sortedPairs;
 	std::vector<std::pair<int, int> >	_newSortedPairs;
 
-	PMergeMeVector(const PMergeMeVector& other) : _numbers(other._numbers) {};
+	PmergeMeVector(const PmergeMeVector& other) : _numbers(other._numbers) {};
 	
 	//		SURCHARGE D'OPERATEUR
-	PMergeMeVector& operator=(const PMergeMeVector& other) {
+	PmergeMeVector& operator=(const PmergeMeVector& other) {
 		if (this != &other) {
 			this->_numbers = other.getNumbers();
 		}
@@ -54,17 +54,17 @@ private :
 	}
 
 	//		FUNCTIONS
-	void pairSort( void );
-	// void pushSequence(std::vector<std::pair<int, int> > *sequence, std::vector<std::pair<int, int> > tmp, int size);
-	void recursiveSort(std::vector<int> *sequence);
-	void makeGroups( void );
-	void binarySearch( void );
-	int findSecond(int first);
+	int		findSecond(int first); 
+	void	pairSort( void );
+	void	makeGroups( void );
+	void	binarySearch( void );
+	void	recursiveSort(std::vector<int> *sequence);
 
 public :
+
 	//		CONSTRUCTEURS
-	PMergeMeVector( void )  : _oddNbr(-1) {};
-	~PMergeMeVector( void ) {};
+	PmergeMeVector( void )  : _oddNbr(-1) {};
+	~PmergeMeVector( void ) {};
 
 	//		FUNCTIONS
 	void	checkArgs ( int argc, char **argv );
@@ -89,7 +89,7 @@ public :
 
 };
 
-class PMergeMeDeque {
+class PmergeMeDeque {
 
 private :
 
@@ -100,10 +100,10 @@ private :
 	std::deque<int> 					_index;
 	std::deque<std::pair<int, int> >	_sortedPairs;
 
-	PMergeMeDeque(const PMergeMeDeque& other) : _numbers(other._numbers) {};
+	PmergeMeDeque(const PmergeMeDeque& other) : _numbers(other._numbers) {};
 	
 	//		SURCHARGE D'OPERATEUR
-	PMergeMeDeque& operator=(const PMergeMeDeque& other) {
+	PmergeMeDeque& operator=(const PmergeMeDeque& other) {
 		if (this != &other) {
 			this->_numbers = other.getNumbers();
 		}
@@ -119,8 +119,8 @@ private :
 
 public :
 	//		CONSTRUCTEURS
-	PMergeMeDeque( void )  : _oddNbr(-1) {};
-	~PMergeMeDeque( void ) {};
+	PmergeMeDeque( void )  : _oddNbr(-1) {};
+	~PmergeMeDeque( void ) {};
 
 	//		FUNCTIONS
 	void	checkArgs ( int argc, char **argv );

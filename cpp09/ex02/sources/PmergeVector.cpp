@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PMergeMeVector.cpp                                :+:      :+:    :+:   */
+/*   PmergeMeVector.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 
-#include "../includes/PMergeMe.hpp"
+#include "../includes/PmergeMe.hpp"
 
-void PMergeMeVector::pairSort()
+void PmergeMeVector::pairSort()
 {
 	if (this->_numbers.size() % 2 != 0)
 	{
@@ -34,7 +34,7 @@ void PMergeMeVector::pairSort()
 }
 
 
-void PMergeMeVector::sort()
+void PmergeMeVector::sort()
 {
 	if (this->_numbers.size() == 0)
 	{
@@ -135,13 +135,13 @@ void PMergeMeVector::sort()
 	// std::cout << "(" << this->_sortedPairs.begin()->first << ", " << this->_sortedPairs.begin()->second << ") ";
 	
 	// Ajouter le premier élément de la liste "sortedPairs" à la liste "sequence"
+	this->_sequence.push_back(this->_newSortedPairs[0].second);
+	this->_newSortedPairs[0].second = -1;
 	for (size_t i = 0; i < this->_newSortedPairs.size(); i++)
 	{
 		this->_sequence.push_back(this->_newSortedPairs[i].first);
 	}
 
-	// Supprimer le premier élément de la liste "sortedPairs"
-	this->_sortedPairs.erase(this->_sortedPairs.begin());	
 
 	std::cout << "Sequence triée avec l'élément appareillé au premier: ";
 	for (size_t i = 0; i < this->_sequence.size(); i++)
@@ -153,9 +153,10 @@ void PMergeMeVector::sort()
 	this->_numbers.clear(); // Vider la liste "numbers"
 
 	// Ajouter les éléments de la liste "sortedPairs" à la liste "numbers"
-	for (size_t i = 0; i < this->_sortedPairs.size(); i++)
+	for (size_t i = 0; i < this->_newSortedPairs.size(); i++)
 	{
-		this->_numbers.push_back(this->_sortedPairs[i].second);
+		if (this->_newSortedPairs[i].second != -1)
+			this->_numbers.push_back(this->_newSortedPairs[i].second);
 	}
 	if (this->_oddNbr != -1) 
 		this->_numbers.push_back(this->_oddNbr); // Ajouter l'élément impair à la liste "numbers"
@@ -207,7 +208,7 @@ void PMergeMeVector::sort()
 }
 
 // fonction qui parcours sortedPair, qui cherche un first et qui return le second qui lui est associé
-int PMergeMeVector::findSecond(int first)
+int PmergeMeVector::findSecond(int first)
 {
 	for (size_t i = 0; i < this->_sortedPairs.size(); i++)
 	{
@@ -219,16 +220,15 @@ int PMergeMeVector::findSecond(int first)
 	return -1;
 }
 
-void PMergeMeVector::binarySearch( void )
+void PmergeMeVector::binarySearch( void )
 {
 	for (size_t i = 0; i < this->_groups.size(); i++)
 	{
 		int index = this->_index[i];
 		int element = this->_groups[i];
-		// std::vector<int>& group = this->_groups[i];
 
-		int left = 0;
-		int right = index + i;
+		size_t left = 0;
+		size_t right = index + i;
 
 		while (left < right)
 		{
@@ -245,7 +245,13 @@ void PMergeMeVector::binarySearch( void )
 		}
 
 		// Insert element at the correct position
-		this->_sequence.insert(this->_sequence.begin() + left, element);
+		if (left >= this->_sequence.size())
+			this->_sequence.push_back(element);
+		else if (left == 0)
+			this->_sequence.insert(this->_sequence.begin(), element);
+		else
+			this->_sequence.insert(this->_sequence.begin() + left, element);
+
 		std::cout << "i : " << i << " element : " << element << " :";
 		for (size_t i = 0; i < this->_sequence.size(); i++)
 		{
@@ -255,7 +261,7 @@ void PMergeMeVector::binarySearch( void )
 	}
 }
 
-void PMergeMeVector::makeGroups( void )
+void PmergeMeVector::makeGroups( void )
 {
 	std::vector<std::vector<int> > groups;
 	size_t start = 0;
@@ -297,7 +303,6 @@ void PMergeMeVector::makeGroups( void )
 		std::cout << std::endl;
 	}
 
-	// int k = groups[0].size();
 	for (size_t i = 0; i < groups.size(); i++)
 	{
 		std::reverse(groups[i].begin(), groups[i].end());
@@ -348,7 +353,7 @@ void PMergeMeVector::makeGroups( void )
 
 }
 
-void PMergeMeVector::checkArgs(int argc, char **argv)
+void PmergeMeVector::checkArgs(int argc, char **argv)
 {
 	for (int i = 1; i < argc; i++)
 	{
@@ -369,7 +374,7 @@ void PMergeMeVector::checkArgs(int argc, char **argv)
 	}
 }
 	
-void PMergeMeVector::recursiveSort(std::vector<int> *sequence)
+void PmergeMeVector::recursiveSort(std::vector<int> *sequence)
 {
 	if (sequence->empty())
 		return;
@@ -384,7 +389,7 @@ void PMergeMeVector::recursiveSort(std::vector<int> *sequence)
 	}
 	std::cout << std::endl;
 
-	PMergeMeVector tmp;
+	PmergeMeVector tmp;
 
 	tmp.setNumbers(*sequence);
 	tmp.sort();
@@ -403,34 +408,4 @@ void PMergeMeVector::recursiveSort(std::vector<int> *sequence)
 	}
 	
 	std::cout << std::endl;
-
-	// std::cout << std::endl;
-
-
-	// tmp.push_back(sequence->front());
-	// sequence->erase(sequence->begin());
-
-	// recursiveSort(sequence);
-
-	// pushSequence(sequence, tmp, sequence->size());
 }
-
-// void PMergeMeVector::pushSequence(std::vector<std::pair<int, int> > *sequence, std::vector<std::pair<int, int> > tmp, int size)
-// {
-// 	if (tmp.empty()) {
-// 		return;
-// 	}
-
-// 	int tmpValue = tmp.at(0).first;
-// 	int tmpValueSec = tmp.at(0).second;
-// 	tmp.erase(tmp.begin());
-
-// 	std::vector<std::pair<int, int> >::iterator it = sequence->begin();
-// 	while (it != sequence->end() && it->first < tmpValue) {
-// 		++it;
-// 	}
-
-// 	sequence->insert(it, std::make_pair(tmpValue, tmpValueSec));
-
-// 	pushSequence(sequence, tmp, size - 1);
-// }

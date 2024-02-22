@@ -6,21 +6,21 @@
 #    By: ibenhaim <ibenhaim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/10 14:39:49 by ibenhaim          #+#    #+#              #
-#    Updated: 2024/02/21 12:08:47 by ibenhaim         ###   ########.fr        #
+#    Updated: 2024/02/22 08:43:50 by ibenhaim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	PMergeMe
+NAME		=	PmergeMe
 
 DIR_SRCS	=	sources/
 DIR_INC		=	includes/
 
 SRCS		=	${DIR_SRCS}main.cpp\
-				${DIR_SRCS}PMergeDeque.cpp\
-				${DIR_SRCS}PMergeVector.cpp\
+				${DIR_SRCS}PmergeDeque.cpp\
+				${DIR_SRCS}PmergeVector.cpp\
 
 INC			=	\
-				${DIR_INC}PMergeMe.hpp\
+				${DIR_INC}PmergeMe.hpp\
 
 DIR_OBJS	=	.objs/
 
